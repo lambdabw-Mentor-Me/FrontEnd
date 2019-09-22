@@ -3,7 +3,7 @@ import React from 'react';
 const Questions = () => {
 
     return (
-        <h1>Hellor from questions form.js</h1>
+        <h1>Hello from questions.js</h1>
     )
 } 
 
