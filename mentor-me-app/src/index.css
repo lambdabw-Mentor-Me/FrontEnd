@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Muli', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+hr {
+  color: #E2E8ED;
+}
+
+p {
+  color: #4c5264;
+}
+
+.activeLink {
+  color:#5887F9;
+}
+
+.category-feed-text {
+  color: #FFF;
+  opacity: .6; 
+}
+
+.gradient-background {
+  background-image: linear-gradient(to right, #5574F7 , #60C3FF);
+}
+
+.footer-link {
+  color: #BCC5D3;
+}
+
+.footer-link:active {
+  color:#5887F9;
+}
+
+
