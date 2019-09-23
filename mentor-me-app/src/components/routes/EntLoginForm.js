@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import React, { useState,  } from 'react';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
-const RegisterForm = () => {
+const EntLoginForm = (props) => {
+
     const [user, setUser] = useState({
         credentials: {
             email: '',
-            password: ''
+            password: '',
         }
     })
 
@@ -16,29 +17,36 @@ const RegisterForm = () => {
                 [e.target.name]: e.target.value
             }
         })
+        console.log(user.credentials)
     }
 
-    const register = e => {
+    const login = e => {
         e.preventDefault();
 
-        axiosWithAuth().post('/ent/register', user.credentials)
+        axiosWithAuth().post('/ent/login', user.credentials)
         .then(res => {
             console.log(res)
+            localStorage.setItem('token', res.data.payload)
+
+            user.props.history.push('/questions')
+            console.log(user)
         })
         .catch(err => console.log(err.response))
     }
 
     return (
-        <form onSubmit={register}>
+        <form onSubmit={login}>
           <input
             type="email"
-            name="username"
-            value={user.credentials.username}
+            name="email"
+            placeholder='Email'
+            value={user.credentials.email}
             onChange={handleChange}
           />
           <input
             type="password"
             name="password"
+            placeholder='Password'
             value={user.credentials.password}
             onChange={handleChange}
           />
@@ -47,4 +55,4 @@ const RegisterForm = () => {
     )
 } 
 
-export default RegisterForm;
+export default EntLoginForm;
