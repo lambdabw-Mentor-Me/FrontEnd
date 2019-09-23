@@ -29,12 +29,12 @@ function App() {
       </div>
 
       <Switch>
-        <PrivateRoute exact path='/home' component={Home} />
-        <Route component={RegisterForm} />
+        <Route exact path='/' component={Home} />
+        <Route path='/register' component={RegisterForm} />
         <Route path='/login' component={LoginForm} />
-        <PrivateRoute path='/profile' render={props => (<Profile {...props} />)} />
-        <PrivateRoute path='/questions' render={props => (<Questions {...props} />)} />
-        <PrivateRoute path='/search' render={props => (<Search {...props} />)} />
+        <Route path='/profile' component={Profile} />
+        <Route path='/questions' component={Questions} />
+        <Route path='/search' component={Search} />
       </Switch>
     </Router>
   );
