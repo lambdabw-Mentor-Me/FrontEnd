@@ -1,13 +1,27 @@
 import React from 'react';
-import styled from "styled-comonents";
-
+import FeedCard from "./FeedCard";
 
 
 const Feed = (props) => {
 
     return (
-        <h1> I'm a feed component!</h1>
+        // <section className="feed-container">
+        // {feedData.map(question => 
+        
+        //     <FeedCard
+        //         id={question.id}
+        //         name={questions.name}
+        //         category={questions.type}
+        //         question={questions.dimension}
+        //         imgsrc={questions.image}
+        //     />   
+        // )}
+        // </section>
+
+        
+        <FeedCard />
+        
     )
 } 
 
-export default LoginForm;
+export default Feed;
