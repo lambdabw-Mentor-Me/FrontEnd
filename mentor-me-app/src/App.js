@@ -6,7 +6,8 @@ import LoginForm from './components/LoginForm';
 import Profile from './pages/Profile';
 import Questions from './pages/Questions';
 import Home from './pages/Home';
-import Search from './pages/search';
+import Search from './pages/Search';
+import PrivateRoute from './components/PrivateRoute';
 
 import './App.css';
 
@@ -28,12 +29,12 @@ function App() {
       </div>
 
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/register' component={RegisterForm} />
+        <PrivateRoute exact path='/home' component={Home} />
+        <Route component={RegisterForm} />
         <Route path='/login' component={LoginForm} />
-        <Route path='/profile' render={props => (<Profile {...props} />)} />
-        <Route path='/questions' render={props => (<Questions {...props} />)} />
-        <Route path='/search' render={props => (<Search {...props} />)} />
+        <PrivateRoute path='/profile' render={props => (<Profile {...props} />)} />
+        <PrivateRoute path='/questions' render={props => (<Questions {...props} />)} />
+        <PrivateRoute path='/search' render={props => (<Search {...props} />)} />
       </Switch>
     </Router>
   );
