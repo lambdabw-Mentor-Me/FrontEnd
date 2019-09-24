@@ -29,7 +29,7 @@ const EntRegisterForm = () => {
 
             EntRegisterForm.user.props.history.push('/login')
 
-            localStorage.setItem('token', JSON.stringify(res.data))
+            localStorage.setItem('token', JSON.stringify(res.data.token))
             // localStorage.setItem('user', JSON.stringify(res.data))
 
             console.log(user)
