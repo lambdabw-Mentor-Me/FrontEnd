@@ -22,17 +22,31 @@ const SomeComponent = styled.div`
     z-index: 0;
   }
 
+  div {
+    height: 40rem;
+    position: absolute;
+		width: 37.5rem;
+    top: 0;
+    left: 0;
+    opacity: .3;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: #000;
+  }
+
 `
 
 const Stack = styled.div`
-	top: -10rem;
-	margin: 0 auto;
+	/* top: -10rem; */
+	/* margin: 0 auto; */
 	width: fit-content;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
-	
+  z-index: 2;
+  justify-content: flex-end;
 	p {
 		color: white;
 		margin: .5rem 0;
@@ -41,13 +55,16 @@ const Stack = styled.div`
 
 const GradientButton = styled.div`
   position: relative;
-  top: -8rem;
+  top: -.3rem;
   padding: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
 	background-image: linear-gradient(82deg, #5574F7 , #60C3FF);
 
+  &:hover {
+    cursor: pointer;
+  }
   img {
     width: 2.4rem;
     height: 2.4rem;
@@ -57,7 +74,7 @@ const GradientButton = styled.div`
 
 const DetailsContainer = styled.div`
   position: relative;
-  top: -8rem;
+  /* top: -8rem; */
 	padding: 0 2rem;
 
   div {
@@ -84,6 +101,7 @@ export default function ProfileComponent() {
           <p>Photographer, New York</p>
           <p>Stars</p>
         </Stack>
+        <div></div>
       </SomeComponent>
 
       <div className="bottom-component">
