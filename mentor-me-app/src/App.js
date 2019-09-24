@@ -12,6 +12,7 @@ import EntRegisterForm from './components/EntRegisterForm';
 import EntLoginForm from './components/EntLoginForm';
 import MentorLoginForm from './components/MentorLoginForm';
 import MentorRegisterForm from './components/MentorRegisterForm';
+import Feed from './components/Feed';
 
 import './App.css';
 
@@ -47,6 +48,7 @@ function App() {
         <PrivateRoute path='/profile' component={Profile} />
         <PrivateRoute path='/questions' component={Questions} />
         <PrivateRoute path='/search' component={Search} />
+        <PrivateRoute path='/feed' component={Feed} />
       </Switch>
     </Router>
   );
