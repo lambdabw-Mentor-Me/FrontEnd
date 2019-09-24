@@ -34,7 +34,7 @@ const Questions = () => {
                 </div>
 
                 <div className={`info__bottom`}>
-                    <img src={`${pic.medium}`} alt="Profile image"/>
+                    <img src={`${pic.large}`} alt="Profile image"/>
                 </div>
             </style.infoDiv>
 

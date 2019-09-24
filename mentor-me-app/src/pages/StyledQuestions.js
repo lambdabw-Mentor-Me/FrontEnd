@@ -35,6 +35,15 @@ const infoDiv = styled.div`
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
+
+        & > img {
+            height: 5rem;
+            max-width: 100%;
+            border: 5px solid #FFFFFF;
+            border-radius: 0.8rem;
+            position: relative;
+            bottom: 3rem;
+        }
     }
 `;
 
