@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "name": "mentor-me-app",
+    "builds": [{ "src": "mentor-me-app/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "routes": [
+        { "src": "/(.*)", "dest": "mentor-me-app/$1" }
+    ]
+}

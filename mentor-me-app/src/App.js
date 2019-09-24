@@ -27,7 +27,8 @@ function App() {
             {/* <NavLink to="/ent-login">Login</NavLink> */}
             <NavLink to="/profile">Profile</NavLink>
             <NavLink to="/questions">Questions</NavLink>
-            <NavLink to="/search">Search</NavLink> 
+            <NavLink to="/search">Search</NavLink>
+            <NavLink to="/feed">Feed</NavLink>
           </div>
         </nav>
         <button><NavLink to='/ent-register'>Entrprenuer</NavLink></button>
