@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import axios from 'axios';
 
@@ -13,8 +13,8 @@ const Questions = () => {
     // ? AXIOS CALL FOR USER INFORMATION (User pictures)
     useEffect(() => {
         axios.get(`https://randomuser.me/api/?inc=picture`)
-        .then(res => res.data.results[0])
-        .then(res => setPic(res.picture))
+            .then(res => res.data.results[0])
+            .then(res => setPic(res.picture))
     }, [])
 
     // ! LOG DATA
@@ -36,23 +36,26 @@ const Questions = () => {
                 </div>
 
                 <div className={`info__bottom`}>
-                    <img src={`${pic.large}`} alt="Profile image"/>
+                    <img src={`${pic.large}`} alt="Profile image" />
                 </div>
             </style.infoDiv>
 
             {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DESCRIPTION
              */}
             <style.descriptionDiv>
-                <h3>DESCRIPTION HERE:</h3>
+                <article className={`description__inner-div`}>
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </article>
             </style.descriptionDiv>
 
             {/* // * BUTTON FOR POSTED QUESTIONS & DESCRIPTION
              */}
             <style.btnDiv>
                 <button>
-                {/* // TODO: IMG icon here.
+                    {/* // TODO: IMG icon here.
                  */}
-                Respond button here
+                    Respond button here
                 </button>
             </style.btnDiv>
         </style.section>

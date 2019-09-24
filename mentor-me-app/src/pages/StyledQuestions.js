@@ -23,15 +23,14 @@ const infoDiv = styled.div`
         background-image: linear-gradient(90deg, #5574f7 0%, #60c3ff 100%);
 
         & > .info__extra-info {
-
-            & > .local-time {
-                padding: 1rem;
-            }
+            padding: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
         & > h2 {
-            padding-top: 2rem;
             text-align: center;
+            color: #FFFFFF;
         }
     }
 
@@ -60,6 +59,27 @@ const infoDiv = styled.div`
 const descriptionDiv = styled.div`
     height: 65vh;
     background-color: #FAFAFA;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    & > .description__inner-div {
+        height: 50%;
+        width: 50%;
+        margin-top: 10%;
+
+        & > h3 {
+            color: #5887F9;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        & > p {
+            color: #4D5365;
+            font-weight: 600;
+        }
+    }
 `;
 
 const btnDiv = styled.div`
