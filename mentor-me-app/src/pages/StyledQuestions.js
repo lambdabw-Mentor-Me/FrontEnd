@@ -4,13 +4,6 @@ const section = styled.section`
     width: 100vw;
     height: 100vh;
     background-color: red;
-
-    & > * {
-        border: none;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 `;
 
 const infoDiv = styled.div`
@@ -31,6 +24,7 @@ const infoDiv = styled.div`
         & > h2 {
             text-align: center;
             color: #FFFFFF;
+            margin-top: 5%;
         }
     }
 
@@ -46,7 +40,7 @@ const infoDiv = styled.div`
         justify-content: center;
 
         & > img {
-            height: 5rem;
+            height: 6.5rem;
             max-width: 100%;
             border: 5px solid #FFFFFF;
             border-radius: 0.8rem;
@@ -68,16 +62,19 @@ const descriptionDiv = styled.div`
         height: 50%;
         width: 50%;
         margin-top: 10%;
+        width: 75%;
 
         & > h3 {
             color: #5887F9;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
         }
 
         & > p {
             color: #4D5365;
             font-weight: 600;
+            font-size: 1.35rem;
+            padding-top: 0.6rem;
         }
     }
 `;
@@ -95,9 +92,9 @@ const btnDiv = styled.div`
         background-color: rgba(0,0,0,0);
         color: #FFFFFF;
         height: 50%;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         font-weight: bold;
-        margin-top: 2%;
+        margin-top: 5%;
         border: none;
     }
 `;
