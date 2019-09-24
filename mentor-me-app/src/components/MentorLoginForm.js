@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import React, { useState,  } from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const MentorRegisterForm = () => {
+const EntLoginForm = (props) => {
+
     const [user, setUser] = useState({
         credentials: {
             email: '',
@@ -19,22 +20,25 @@ const MentorRegisterForm = () => {
         console.log(user.credentials)
     }
 
-    const register = e => {
+    const login = e => {
         e.preventDefault();
 
-        axiosWithAuth().post('/ent/register', user.credentials)
+        axiosWithAuth().post('/ent/login', user.credentials)
         .then(res => {
             console.log(res)
-            localStorage.setItem('token', JSON.stringify(res.data))
+            localStorage.setItem('token', JSON.stringify(res.data.payload.token))
+            // localStorage.setItem('token', JSON.stringify(res.data.payload))
 
-            user.props.history.push('/login')
+            EntLoginForm.user.props.history.push('/questions')
             console.log(user)
         })
         .catch(err => console.log(err.response))
     }
 
     return (
-        <form onSubmit={register}>
+        <>
+        <h1>Mentor Login</h1>
+        <form onSubmit={login}>
           <input
             type="email"
             name="email"
@@ -49,9 +53,10 @@ const MentorRegisterForm = () => {
             value={user.credentials.password}
             onChange={handleChange}
           />
-          <button>Register</button>
+          <button type='submit'>Log in</button>
         </form>
+        </>
     )
 } 
 
-export default MentorRegisterForm;
+export default EntLoginForm;
