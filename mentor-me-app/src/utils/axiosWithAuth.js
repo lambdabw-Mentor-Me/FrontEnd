@@ -6,7 +6,7 @@ export const axiosWithAuth = () => {
     return axios.create({
         baseURL: 'https://mentorme2019.herokuapp.com/api',
         headers: {
-            "Authorization": `${token}`
+            Authorization: JSON.parse(token)
         }
     })
 }
