@@ -26,8 +26,9 @@ const EntLoginForm = (props) => {
         axiosWithAuth().post('/ent/login', user.credentials)
         .then(res => {
             console.log(res)
-            localStorage.setItem('token', JSON.stringify(res.data.token))
-            localStorage.setItem('user', JSON.stringify(user.credentials))
+            localStorage.setItem('token', res.data.token)
+            console.log('this is the token!!!!!', res.data.token)
+            localStorage.setItem('user', JSON.stringify(user))
 
             EntLoginForm.user.props.history.push('/questions')
             console.log(user)
