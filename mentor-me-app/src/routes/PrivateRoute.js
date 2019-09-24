@@ -15,7 +15,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={props => {
             console.log(props)
-        if (localStorage.getItem('user')) {
+        if (localStorage.getItem('token')) {
           // if token is in localstorage, render the given component
           return <Component {...props} />;
   
