@@ -22,6 +22,13 @@ const infoDiv = styled.div`
         color: #FEFEFF;
         background-image: linear-gradient(90deg, #5574f7 0%, #60c3ff 100%);
 
+        & > .info__extra-info {
+
+            & > .local-time {
+                padding: 1rem;
+            }
+        }
+
         & > h2 {
             padding-top: 2rem;
             text-align: center;

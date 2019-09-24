@@ -20,16 +20,18 @@ const Questions = () => {
     // ! LOG DATA
     console.log(pic)
 
-    // ? MOMENT PACKAGE PROVIDING LOCAL TIME TO USERS.
-    // TODO: Implement
-    console.log(moment().format('LT'))
-
     return (
         <style.section>
             {/* // * TOP DIV PROVIDING INFO (TIME, USERNAME, PIC, ETC.)
              */}
             <style.infoDiv>
                 <div className={`info__top`}>
+                {/*  // * EXTRA INFO DIV NESTED INSIDE ".info__top" CLASS
+                 */}
+                    <div className={`info__extra-info`}>
+                        <span className={`local-time`}>{moment().format('LT')}</span>
+                    </div>
+
                     <h2>USERNAME HERE</h2>
                 </div>
 
