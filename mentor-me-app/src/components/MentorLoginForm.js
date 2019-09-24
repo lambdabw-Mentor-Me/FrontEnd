@@ -1,7 +1,7 @@
 import React, { useState,  } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const EntLoginForm = (props) => {
+const MentorLoginForm = (props) => {
 
     const [user, setUser] = useState({
         credentials: {
@@ -23,14 +23,13 @@ const EntLoginForm = (props) => {
     const login = e => {
         e.preventDefault();
 
-        axiosWithAuth().post('/ent/login', user.credentials)
+        axiosWithAuth().post('/mentor/login', user.credentials)
         .then(res => {
             console.log(res)
             localStorage.setItem('token', res.data.token)
-            console.log('this is the token!!!!!', res.data.token)
             localStorage.setItem('user', JSON.stringify(user))
 
-            EntLoginForm.user.props.history.push('/questions')
+            MentorLoginForm.user.props.history.push('/questions')
             console.log(user)
         })
         .catch(err => console.log(err.response))
@@ -60,4 +59,4 @@ const EntLoginForm = (props) => {
     )
 } 
 
-export default EntLoginForm;
+export default MentorLoginForm;
