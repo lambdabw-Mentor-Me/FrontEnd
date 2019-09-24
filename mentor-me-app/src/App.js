@@ -8,6 +8,7 @@ import Questions from './pages/Questions';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import PrivateRoute from './components/PrivateRoute';
+import Feed from "./components/Feed";
 
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
             <NavLink to="/profile">Profile</NavLink>
             <NavLink to="/questions">Questions</NavLink>
             <NavLink to="/search">Search</NavLink>
+            <NavLink to="/feed">Feed</NavLink>
           </div>
         </nav>
         <h1>Mentor Me App</h1>
@@ -35,6 +37,7 @@ function App() {
         <Route path='/profile' component={Profile} />
         <Route path='/questions' component={Questions} />
         <Route path='/search' component={Search} />
+        <Route path='/feed' component={Feed} />
       </Switch>
     </Router>
   );
