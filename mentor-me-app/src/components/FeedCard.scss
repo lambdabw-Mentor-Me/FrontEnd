@@ -1,0 +1,20 @@
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(0%);
+      opacity: .2;
+    }
+    100% {
+      transform: translateX(-100%);
+      opacity:1;
+    }
+  }
+
+
+  @keyframes hoverZoom {
+    0% {
+        zoom:100%;
+    }
+    100% {
+        zoom:110%;
+    }
+  }

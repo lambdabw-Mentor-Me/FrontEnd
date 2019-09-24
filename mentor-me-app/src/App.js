@@ -10,7 +10,7 @@ import Search from './pages/Search';
 import PrivateRoute from './components/PrivateRoute';
 import Feed from "./components/Feed";
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
