@@ -14,14 +14,12 @@ const FeedCard = (props) => {
         justify-content:flex-end;
         padding:20px;
         height:400px;
-        width:800px;
-        box-sizing:border-box;
-        
+        width:auto;
         background-image: url(${stringLinkingImage});
         background-size:cover;
         max-width:800px;
         opacity:0;
-        left:800px;
+        left:830px;
         position:relative;
         animation: 1s ease-out 0s 1 slideInFromRight;
         animation-fill-mode:forwards;
