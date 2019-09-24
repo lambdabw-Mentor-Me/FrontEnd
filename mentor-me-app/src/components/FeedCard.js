@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import styled from "styled-components";
 import './FeedCard.scss';
+import {axiosWithAuth} from "../utils/axiosWithAuth";   
 
 const FeedCard = (props) => {
     const [questions, setQuestions] = useState([]);
@@ -20,19 +21,26 @@ const FeedCard = (props) => {
         display:flex;
         flex-direction:column;
         align-items:center;
-        justify-content:flex-end;
-        padding:20px;
-        height:400px;
+        
+        
         background-image: url(${stringLinkingImage});
         background-size:cover;
-        max-width:800px;
+        width:100%;
+        height:400px;
         opacity:0;
-        left:800px;
+        
         position:relative;
         animation: 1s ease-out 0s 1 slideInFromRight;
         animation-fill-mode:forwards;
         transition: 1s;
             
+        @media(min-width: 800px) {
+            padding:20px;
+            height:400px;
+            max-width:800px;
+            left:800px;
+        }
+
 
         &:nth-child(1) {
             -webkit-animation-delay: .2s;
