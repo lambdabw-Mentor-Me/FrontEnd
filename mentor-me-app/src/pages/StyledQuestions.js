@@ -31,6 +31,9 @@ const infoDiv = styled.div`
     & > .info__bottom {
         background-color: #FFFFFF;
         height: 30%;
+        border-bottom: 3px solid #E4EAEF;
+        position: relative;
+        z-index: 1000;
 
         display: flex;
         flex-flow: row nowrap;
