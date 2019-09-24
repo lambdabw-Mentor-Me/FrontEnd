@@ -57,7 +57,7 @@ const infoDiv = styled.div`
 `;
 
 const descriptionDiv = styled.div`
-    height: 65vh;
+    height: 70vh;
     background-color: #FAFAFA;
 
     display: flex;
@@ -83,10 +83,22 @@ const descriptionDiv = styled.div`
 `;
 
 const btnDiv = styled.div`
-    height: 5vh;
+
+    height: 10vh;
+    background-image: linear-gradient(90deg, #5574f7 0%, #60c3ff 100%);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
 
     & > button {
-        background-color: #60C3FF;
+        background-color: rgba(0,0,0,0);
+        color: #FFFFFF;
+        height: 50%;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 2%;
+        border: none;
     }
 `;
 

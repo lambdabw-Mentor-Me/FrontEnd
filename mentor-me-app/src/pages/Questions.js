@@ -55,7 +55,7 @@ const Questions = () => {
                 <button>
                     {/* // TODO: IMG icon here.
                  */}
-                    Respond button here
+                    Respond
                 </button>
             </style.btnDiv>
         </style.section>
