@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import FeedCard from "./FeedCard";
 
 
 const Feed = (props) => {
+    const [questions, setQuestions] = useState({})
+
+    useEffect(() => {
+
+        axiosWithAuth().get('/questions')
+        .then(res => {
+        console.log('res =>',res.data, res)
+        setQuestions(res.data)
+        })
+        .catch(err => console.log(err.response))
+    }, [])
+
 
     return (
-        // <section className="feed-container">
-        // {feedData.map(question => 
-        
-        //     <FeedCard
-        //         id={question.id}
-        //         name={questions.name}
-        //         category={questions.type}
-        //         question={questions.dimension}
-        //         imgsrc={questions.image}
-        //     />   
-        // )}
-        // </section>
-
         
         <FeedCard />
         
