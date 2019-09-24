@@ -76,7 +76,7 @@ export default function ProfileComponent() {
       <SomeComponent>
         <ProfileImage
           src={
-            "https://www.ihrb.org/uploads/profile-pictures/Deanna_Kemp_1.jpg"
+            "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg"
           }
         />
         <Stack>
