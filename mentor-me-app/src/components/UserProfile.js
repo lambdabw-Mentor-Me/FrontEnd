@@ -1,6 +1,4 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
-import Search from './Search'
 
 export default function ProfileComponent(){
     return (
@@ -18,25 +16,18 @@ export default function ProfileComponent(){
             <p>MENTOR ME</p>
         </div>
         <div>
-            <MinorDetails count={23} metric={"Students"} to="/profile/students"/>
-            <MinorDetails count={23} metric={"Reviews"}/>
-            <MinorDetails count={23} metric={"Posts"}/>
-
-
-            <Route path= "/profile/students" component={Search}/>
+            <MinorDetails count={23} metric={"Students"}/>
         </div>
         </div>
     </div>
     )
 }
 
-function MinorDetails({count, metric, to}){
+function MinorDetails({count, metric}){
     return(
-        <NavLink to={to}>
-            <div>
+        <div>
             <p>{count}</p>
             <p>{metric}</p>
         </div>
-        </NavLink>
     )
 }
