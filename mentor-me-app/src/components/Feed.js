@@ -1,6 +1,18 @@
 import React from 'react';
 import FeedCard from "./FeedCard";
 import styled from "styled-components";
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+
+
+// useEffect(() => {
+//     // TODO: Add API Request here - must run in `useEffect`
+//     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+//     axiosWithAuth.get("https://rickandmortyapi.com/api/character/").then(res => {
+//       // setCharacters(res.data.results);
+//       console.log(res.data.results);
+//           }).catch(e => console.log(e));
+//   }, []);
+
 
 const FeedBox = styled.div`
     overflow:hidden:
@@ -14,6 +26,8 @@ const FeedBox = styled.div`
 
 const Feed = (props) => {
 
+
+    
     return (
         // <section className="feed-container">
         // {feedData.map(question => 

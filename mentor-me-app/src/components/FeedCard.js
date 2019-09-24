@@ -1,9 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from "styled-components";
 import './FeedCard.scss';
 
 const FeedCard = (props) => {
     const [questions, setQuestions] = useState([]);
+
+    useEffect(() => {
+        // TODO: Add API Request here - must run in `useEffect`
+        //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+        axiosWithAuth.get("https://rickandmortyapi.com/api/character/").then(res => {
+          setQuestions(res.data.results);
+          console.log(res.data.results);
+        }).catch(e => console.log(e));
+      }, []);
 
     let stringLinkingImage = "https://images.unsplash.com/photo-1564928275797-a7ab0852021d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1682&q=80";
     const Card = styled.div`
@@ -70,12 +79,16 @@ const FeedCard = (props) => {
         margin-bottom: 20px;
         text-align:center;
     `
+    
+
+
 
     return (
         // probably set background image with style in here
         // <Card style={{backgroundImage: "url(" + stringLinkingImage + ")"}}>
         <Card>
             <Name>Michael Harms</Name>
+            
             <Category>Cybercoinology</Category>
             <Question>Why do people say Bitcoin is fungible if there are blacklisted addresses associated with Iranian cybercrime?</Question>
         </Card>
