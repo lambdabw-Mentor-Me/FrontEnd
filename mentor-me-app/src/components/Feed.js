@@ -15,10 +15,11 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
 const FeedBox = styled.div`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    width:100%;
+    box-sizing:border-box;
+    padding:0px;
+    margin:0px;
+    
+    width:800px;
 `
 
 

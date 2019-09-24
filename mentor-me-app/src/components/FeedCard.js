@@ -14,6 +14,9 @@ const FeedCard = (props) => {
         justify-content:flex-end;
         padding:20px;
         height:400px;
+        width:800px;
+        box-sizing:border-box;
+        
         background-image: url(${stringLinkingImage});
         background-size:cover;
         max-width:800px;
