@@ -18,6 +18,8 @@ const Feed = (props) => {
     const [questions, setQuestions] = useState([])
     const [ents, setEnts] = useState([]);
 
+    const entObject = (item) => ents.find(obj => obj.id == item.entrepreneur_id).email;
+
     useEffect(() => {
         axiosWithAuth().get("/ent/all")
             .then(res => {
@@ -44,7 +46,7 @@ const Feed = (props) => {
         
         <FeedCard
           key={question.id}
-          id={ents.find(obj => obj.id == question.entrepreneur_id).email}
+          id={entObject(question) && entObject(question)}
           question={question.question}
           title={question.title}
 

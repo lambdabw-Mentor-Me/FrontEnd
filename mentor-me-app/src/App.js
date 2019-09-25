@@ -34,7 +34,7 @@ function App() {
             <NavLink to="/feed">Feed</NavLink>
           </div>
         </nav>
-        <button><NavLink to='/ent-register'>Entrprenuer</NavLink></button>
+        <button><NavLink to='/ent-register'>Entrpreneur</NavLink></button>
         <button><NavLink to='/mentor-register'>Mentor</NavLink></button>
       </div>
 
