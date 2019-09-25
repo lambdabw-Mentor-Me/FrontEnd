@@ -29,7 +29,7 @@ const EntLoginForm = (props) => {
             localStorage.setItem('token', JSON.stringify(res.data.token))
             localStorage.setItem('user', JSON.stringify(user))
 
-            EntLoginForm.user.props.history.push('/questions')
+           props.history.push('/questions')
             console.log(user)
         })
         .catch(err => console.log(err.response))
