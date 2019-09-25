@@ -1,10 +1,15 @@
-import React, {useState, useEffect} from 'react';
-import moment from 'moment';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// * STYLE IMPORTS (style-components)
-import style from './StyledQuestions';
+// * COMPONENT IMPORTS
+import { Info } from '../components/Questions/Info'
+import { Description } from '../components/Questions/Description'
+import { Button } from '../components/Questions/Button'
 
+// * STYLE IMPORTS (style-components)
+import style from '../components/Questions/StyledQuestions'
+
+// ? QUESTIONS PAGE
 const Questions = () => {
 
     // * useState for temporary profile images
@@ -13,8 +18,8 @@ const Questions = () => {
     // ? AXIOS CALL FOR USER INFORMATION (User pictures)
     useEffect(() => {
         axios.get(`https://randomuser.me/api/?inc=picture`)
-        .then(res => res.data.results[0])
-        .then(res => setPic(res.picture))
+            .then(res => res.data.results[0])
+            .then(res => setPic(res.picture))
     }, [])
 
     // ! LOG DATA
@@ -22,39 +27,18 @@ const Questions = () => {
 
     return (
         <style.section>
-            {/* // * TOP DIV PROVIDING INFO (TIME, USERNAME, PIC, ETC.)
+
+            {/* //* TOP DIV FOR QUESTION.JS
              */}
-            <style.infoDiv>
-                <div className={`info__top`}>
-                {/*  // * EXTRA INFO DIV NESTED INSIDE ".info__top" CLASS
-                 */}
-                    <div className={`info__extra-info`}>
-                        <span className={`local-time`}>{moment().format('LT')}</span>
-                    </div>
+            <Info pic={pic} />
 
-                    <h2>USERNAME HERE</h2>
-                </div>
-
-                <div className={`info__bottom`}>
-                    <img src={`${pic.large}`} alt="Profile image"/>
-                </div>
-            </style.infoDiv>
-
-            {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DESCRIPTION
+            {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DETAILS
              */}
-            <style.descriptionDiv>
-                <h3>DESCRIPTION HERE:</h3>
-            </style.descriptionDiv>
+            <Description />
 
             {/* // * BUTTON FOR POSTED QUESTIONS & DESCRIPTION
              */}
-            <style.btnDiv>
-                <button>
-                {/* // TODO: IMG icon here.
-                 */}
-                Respond button here
-                </button>
-            </style.btnDiv>
+            <Button />
         </style.section>
     )
 }
