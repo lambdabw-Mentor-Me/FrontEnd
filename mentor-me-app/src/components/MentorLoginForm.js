@@ -1,5 +1,6 @@
 import React, { useState,  } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import style from './LoginRegStyles'
 
 const MentorLoginForm = (props) => {
 
@@ -36,7 +37,7 @@ const MentorLoginForm = (props) => {
     }
 
     return (
-        <>
+        <style.FormDiv>
         <h1>Mentor Login</h1>
         <form onSubmit={login}>
           <input
@@ -55,7 +56,7 @@ const MentorLoginForm = (props) => {
           />
           <button type='submit'>Log in</button>
         </form>
-        </>
+        </style.FormDiv>
     )
 } 
 

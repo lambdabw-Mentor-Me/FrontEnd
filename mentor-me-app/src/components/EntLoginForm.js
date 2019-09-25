@@ -1,5 +1,6 @@
 import React, { useState,  } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import style from './LoginRegStyles'
 
 const EntLoginForm = (props) => {
 
@@ -36,7 +37,7 @@ const EntLoginForm = (props) => {
     }
 
     return (
-        <>
+        <style.FormDiv>
         <h1>Entrepreneur Login</h1>
         <form onSubmit={login}>
           <input
@@ -55,7 +56,7 @@ const EntLoginForm = (props) => {
           />
           <button type='submit'>Log in</button>
         </form>
-        </>
+        </style.FormDiv>
     )
 } 
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { NavLink } from 'react-router-dom';
+import style from './LoginRegStyles'
 
 const EntRegisterForm = (props) => {
     const [user, setUser] = useState({
@@ -38,7 +39,7 @@ const EntRegisterForm = (props) => {
     }
 
     return (
-        <>
+        <style.FormDiv>
         <h1>Entrepreneur Register</h1>
         <form onSubmit={register}>
           <input
@@ -58,7 +59,7 @@ const EntRegisterForm = (props) => {
           <button type='submit'>Register</button>
         </form>
         <h3>Already have an account? <NavLink to='/ent-login'>Login</NavLink></h3>
-        </>
+        </style.FormDiv>
     )
 } 
 

@@ -3,22 +3,21 @@ import styled from "styled-components";
 import './FeedCard.scss';
 
 const FeedCard = (props) => {
-    const [questions, setQuestions] = useState([]);
 
     let stringLinkingImage = "https://images.unsplash.com/photo-1564928275797-a7ab0852021d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1682&q=80";
     const Card = styled.div`
         color:white;
+        background-image: url(${stringLinkingImage});
         display:flex;
         flex-direction:column;
         align-items:center;
         justify-content:flex-end;
         padding:20px;
         height:400px;
-        background-image: url(${stringLinkingImage});
         width:100%;
         max-width:800px;
         opacity:0;
-        left:840px;
+        left:750px;
         position:relative;
         animation: 1s ease-out 0s 1 slideInFromRight;
         animation-fill-mode:forwards;
