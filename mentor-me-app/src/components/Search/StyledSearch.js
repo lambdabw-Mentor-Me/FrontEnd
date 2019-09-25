@@ -6,21 +6,37 @@ const section = styled.section`
     background-color: #FAFAFA;
 `;
 
-const Info = styled.div`
-    ${'' /* INFO DIV LINK STYLES HERE */}
+const info = styled.div`
+    ${'' /* // * INFO DIV LINK STYLES HERE 
+    */}
+
+
+    ${'' /* // * ICON STYLES HERE
+     */}
+    & > .signal {
+        
+    }
+
+    & > .wifi {
+        
+    }
+
+    & > .battery {
+        
+    }
 `;
 
-const Results = styled.div`
+const results = styled.div`
     ${'' /* RESULTS DIV LINK STYLES HERE */}
 `;
 
-const BottomNav = styled.div`
+const bottomNav = styled.div`
     ${'' /* BOTTOM NAV LINK STYLES HERE */}
 `;
 
 export default {
     section,
-    Info,
-    Results,
-    BottomNav
+    info,
+    results,
+    bottomNav
 }
