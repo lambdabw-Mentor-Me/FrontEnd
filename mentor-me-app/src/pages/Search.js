@@ -22,6 +22,8 @@ const Search = () => {
         const [query, setQuery] = useState("");
 
         const [ents, setEnts] = useState([]);
+
+        const entObject = (item) => ents.find(obj => obj.id == item.id).email
         
         useEffect(() => {
             axiosWithAuth().get("/ent/all")
@@ -63,6 +65,8 @@ const Search = () => {
         <style.section>
             {/* // * TOP COMPONENT DISPLAYING INPUT SEARCH FUNCTIONALITY
             */}
+            <Info />
+
             <InputContainer>
                 <Input.Search onSearch={handleSearch} />
             </InputContainer>
@@ -78,7 +82,7 @@ const Search = () => {
                             {item.question}
                         </h2>
                         <h3>{item.title}</h3>
-                        <h3 className="Email">{ents.find(obj => obj.id == item.id).email}</h3>
+                        <h3 className="Email">{entObject(item) && entObject(item)}</h3>
                         </div>
                     );
                 })}
@@ -90,7 +94,7 @@ const Search = () => {
 
             {/* // * BOTTOM COMPONENT DISPLAYING NAV BAR
             */}
-            <footer> footer here </footer>
+            <BottomNav />
         </style.section>
     )
 }
