@@ -6,32 +6,32 @@ export const dummyMentor = {
 
 export const dummyStudents = [
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         name: "Maaruf Dauda",
         description: "A very detailed description"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         name: "Maaruf Dauda",
         description: "A very detailed description"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         name: "Maaruf Dauda",
         description: "A very detailed description"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         name: "Maaruf Dauda",
         description: "A very detailed description"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         name: "Maaruf Dauda",
         description: "A very detailed description"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         name: "Maaruf Dauda",
         description: "A very detailed description"
     }
@@ -39,32 +39,32 @@ export const dummyStudents = [
 
 export const dummyReviews = [
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         title: "Maaruf Dauda",
         content: "A very detailed bit of content"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         title: "Maaruf Dauda",
         content: "A very detailed bit of content"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         title: "Maaruf Dauda",
         content: "A very detailed bit of content"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         title: "Maaruf Dauda",
         content: "A very detailed bit of content"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         title: "Maaruf Dauda",
         content: "A very detailed bit of content"
     },
     {
-        image: "",
+        image: "https://www.ihrb.org/uploads/profile-pictures/AlisonBscoe_thumbnail.jpg",
         title: "Maaruf Dauda",
         content: "A very detailed bit of content"
     }
