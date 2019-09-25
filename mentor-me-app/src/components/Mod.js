@@ -20,15 +20,6 @@ const Mod = () => {
     })
   }
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-
-  //   axiosWithAuth().post('/questions', question)
-  //   .then(res => console.log(res.data))
-  //   .catch(err => console.log(err.response))
-  // }
-
-
   const showModal = () => {
     return setVisible(true) ? 
     visible : !visible
@@ -42,14 +33,18 @@ const Mod = () => {
       // console.log(question)
       setQuestion(res.data.payload)
     })
-    .then(setVisible(false))
+    .then(
+      setVisible(false),
+      setQuestion('')
+    )
     .catch(err => console.log(err.response))
    
   };
 
   const handleCancel = e => {
     console.log(e);
-    setVisible(false);
+    setVisible(false)
+    setQuestion('');
   };
 
     return (
