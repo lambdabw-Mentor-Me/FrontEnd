@@ -22,7 +22,7 @@ const Search = () => {
         const [query, setQuery] = useState("");
         const [ents, setEnts] = useState([]);
 
-        const entObject = (item) => ents.find(obj => obj.id == item.id).email
+        const entObject = (item) => ents.find(obj => obj.id == item.entrepreneur_id).email
         
         useEffect(() => {
             axiosWithAuth().get("/ent/all")

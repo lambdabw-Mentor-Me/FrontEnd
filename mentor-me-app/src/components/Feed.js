@@ -44,7 +44,7 @@ const Feed = (props) => {
         
         <FeedCard
           key={question.id}
-          id={ents ? ents.find(obj => obj.id === question.id).email : question.id}
+          id={ents.find(obj => obj.id == question.entrepreneur_id).email}
           question={question.question}
           title={question.title}
 
