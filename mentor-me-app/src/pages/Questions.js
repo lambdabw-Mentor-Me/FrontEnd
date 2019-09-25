@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
 import axios from 'axios';
 
-// * STYLE IMPORTS (style-components)
-import style from './StyledQuestions';
+// * COMPONENT IMPORTS
+import { Info } from '../components/Questions/Info'
+import { Description } from '../components/Questions/Description'
+import { Button } from '../components/Questions/Button'
 
+// * STYLE IMPORTS (style-components)
+import style from '../components/Questions/StyledQuestions'
+
+// ? QUESTIONS PAGE
 const Questions = () => {
 
     // * useState for temporary profile images
@@ -22,42 +27,18 @@ const Questions = () => {
 
     return (
         <style.section>
-            {/* // * TOP DIV PROVIDING INFO (TIME, USERNAME, PIC, ETC.)
+
+            {/* //* TOP DIV FOR QUESTION.JS
              */}
-            <style.infoDiv>
-                <div className={`info__top`}>
-                {/*  // * EXTRA INFO DIV NESTED INSIDE ".info__top" CLASS
-                 */}
-                    <div className={`info__extra-info`}>
-                        <span className={`local-time`}>{moment().format('LT')}</span>
-                    </div>
+            <Info pic={pic} />
 
-                    <h2>USERNAME HERE</h2>
-                </div>
-
-                <div className={`info__bottom`}>
-                    <img src={`${pic.large}`} alt="Profile image" />
-                </div>
-            </style.infoDiv>
-
-            {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DESCRIPTION
+            {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DETAILS
              */}
-            <style.descriptionDiv>
-                <article className={`description__inner-div`}>
-                    <h3>Description</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </article>
-            </style.descriptionDiv>
+            <Description />
 
             {/* // * BUTTON FOR POSTED QUESTIONS & DESCRIPTION
              */}
-            <style.btnDiv>
-                <button>
-                    {/* // TODO: IMG icon here.
-                 */}
-                    Respond
-                </button>
-            </style.btnDiv>
+            <Button />
         </style.section>
     )
 }
