@@ -1,5 +1,8 @@
 import React from 'react'
 
+// * STYLE IMPORTS (style-components)
+import StyledSearch from '../Search/StyledSearch';
+
 export const Info = () => (
     <div>
         <div>
