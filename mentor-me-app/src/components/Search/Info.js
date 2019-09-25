@@ -8,6 +8,8 @@ import style from '../Search/StyledSearch';
 import { ReactComponent as Signal } from '../Assets/SVG/signal-solid.svg';
 import { ReactComponent as Wifi } from '../Assets/SVG/wifi-solid.svg';
 import { ReactComponent as Battery } from '../Assets/SVG/battery-full-solid.svg';
+import { ReactComponent as Back } from '../Assets/SVG/back.svg';
+import { ReactComponent as X } from '../Assets/SVG/x.svg';
 
 export const Info = () => (
     <div>
@@ -29,16 +31,21 @@ export const Info = () => (
              */}
 
             <div className={`info__bottom`}>
-                <input
-                    type="text"
-                    value="" />
+                <Back className={`back-btn`} />
+
+                <div className={`info__bottom-input`}>
+                    <input
+                        type="text"
+                        value="" />
+
+                    <X className={`x-btn`} />
+                </div>
             </div>
         </style.info>
 
         <div>
             {/* //? STYLES FOR CATEGORY SELECTION (DATA SORTING)
               */}
-
             <span>Newest</span>
             <span>Category</span>
         </div>

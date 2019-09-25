@@ -50,9 +50,44 @@ const info = styled.div`
                 width: 3vw;
             }
         }
+    }
 
-        ${'' /* // * INFO BOTTOM CONTAINER
-         */}
+    ${'' /* // * INFO BOTTOM CONTAINER
+    */}
+    & > .info__bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > .back-btn {
+        height: 3vh;
+        width: 5vw;
+        }
+
+        & > .info__bottom-input {
+
+            width: 30%;
+
+            display: flex;
+            align-items: center;
+
+            & > input {
+                margin-left: 1rem;
+                height: 3.5rem;
+                width: 30rem;
+                background-color: rgba(0,0,0,0);
+            }
+
+            & > input:hover {
+                border-bottom: 3px solid #61C1FF;
+            }
+
+            & > .x-btn {
+                height: 2vh;
+                width: 3vw;
+                margin-left: 1rem;
+            }
+        }
     }
 `;
 
