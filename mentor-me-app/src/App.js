@@ -14,9 +14,10 @@ import MentorLoginForm from './components/MentorLoginForm';
 import MentorRegisterForm from './components/MentorRegisterForm';
 import Feed from './components/Feed';
 
-import { QuestionsContext } from './contexts/QuestionsContext';
 
-import './App.css';
+import { QuestionsContext } from './contexts/QuestionsContext';
+import './App.scss';
+
 
 function App() {
   const [questions, setQuestions] = useState([{}])
