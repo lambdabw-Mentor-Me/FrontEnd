@@ -11,6 +11,7 @@ const ProfileImage = styled.img``;
 
 const ParentDiv = styled.div`
   width: 37.5rem;
+  margin: 0 auto;
 `;
 
 const SomeComponent = styled.div`
@@ -93,7 +94,8 @@ const DetailsRow = styled.div`
 
 export default function ProfileComponent() {
   return (
-    <ParentDiv>
+    <div style={{"width":"100%"}}>
+       <ParentDiv>
       <SomeComponent>
         <ProfileImage
           src={
@@ -138,6 +140,8 @@ export default function ProfileComponent() {
         </DetailsContainer>
       </div>
     </ParentDiv>
+
+    </div>
   );
 }
 
