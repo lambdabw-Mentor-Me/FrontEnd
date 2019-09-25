@@ -24,7 +24,7 @@ const infoDiv = styled.div`
         & > h2 {
             text-align: center;
             color: #FFFFFF;
-            margin-top: 5%;
+            margin-top: 4.5rem;
         }
     }
 
@@ -94,7 +94,7 @@ const btnDiv = styled.div`
         height: 50%;
         font-size: 1.5rem;
         font-weight: bold;
-        margin-top: 5%;
+        margin-top: 3rem;
         border: none;
     }
 `;
