@@ -5,7 +5,7 @@ import moment from 'moment';
 import style from './StyledQuestions';
 
 // ? INFO COMPONENT FOR Questions.js
-export const Info = ({pic}) => (
+export const Info = () => (
     <style.infoDiv>
         {/* // * TOP INFO DIV TIME & USERNAME
         */}
@@ -20,7 +20,7 @@ export const Info = ({pic}) => (
         {/* // * BOTTOM INFO DIV FOR IMAGE
          */}
         <div className={`info__bottom`}>
-            <img src={`${pic.large}`} alt="Profile image" />
+            {/* <img src={`${pic.large}`} alt="Profile image" /> */}
         </div>
     </style.infoDiv>
 )

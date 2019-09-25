@@ -28,7 +28,8 @@ const Questions = (props) => {
          
         return (  
          <style.section>
-            <Info pic={pic} />
+             {/* pic={pic} */}
+            <Info  />
 
             {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DETAILS
              */}
