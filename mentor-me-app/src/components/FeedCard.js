@@ -17,7 +17,7 @@ const FeedCard = (props) => {
         width:100%;
         max-width:800px;
         opacity:0;
-        left:750px;
+        left:710px;
         position:relative;
         animation: 1s ease-out 0s 1 slideInFromRight;
         animation-fill-mode:forwards;

@@ -9,6 +9,7 @@ const FeedBox = styled.div`
     flex-direction:column;
     align-items:center;
     width:100vw;
+    margin: 0 auto;
 `;
 
 

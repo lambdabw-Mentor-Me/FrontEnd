@@ -13,6 +13,7 @@ const FormDiv = styled.div`
         font-weight:bold;
         color:white;
         margin: 20vh auto;
+        font-size:3rem;
     }
 
     button{
