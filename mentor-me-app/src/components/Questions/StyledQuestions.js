@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const section = styled.section`
     width: 100vw;
     height: 100vh;
-    background-color: red;
+    background-color: #FAFAFA;
 `;
 
 const infoDiv = styled.div`
