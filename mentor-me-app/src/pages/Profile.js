@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Route } from "react-router-dom";
 import Search from "./Search";
 import styled from "styled-components";
+import '../App.scss';
 
 import {dummyMentor, dummyStudents, dummyReviews} from '../pages/profile_routes/data';
 import Students from '../pages/profile_routes/Students';
@@ -66,7 +67,7 @@ const GradientButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-	background-image: linear-gradient(82deg, #5574F7 , #60C3FF);
+	background-image: linear-gradient(82deg, #5574F7 , #fff, #60C3FF);
 
   &:hover {
     cursor: pointer;
@@ -152,14 +153,18 @@ export default function ProfileComponent() {
 
 function MinorDetails({ count, metric, to }) {
   return (
-    <NavLink to={to}>
+    <FancyLink activeClassName="activeClass" to={to}>
       <MinorDetail>
-        <p>{count}</p>
+        <h4>{count}</h4>
         <p>{metric}</p>
       </MinorDetail>
-    </NavLink>
+    </FancyLink>
   );
 }
+
+const FancyLink = styled(NavLink)`
+  color: white;
+`
 
 const MinorDetail = styled.div`
 	display: flex;
@@ -170,5 +175,9 @@ const MinorDetail = styled.div`
 
 	p {
 		margin: 0;
-	}
+  }
+  
+  h4 {
+
+  }
 `
