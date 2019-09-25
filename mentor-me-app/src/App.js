@@ -14,7 +14,7 @@ import MentorLoginForm from './components/MentorLoginForm';
 import MentorRegisterForm from './components/MentorRegisterForm';
 import Feed from './components/Feed';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
