@@ -18,7 +18,7 @@ import MentorsList from './components/MentorsList'
 
 import { QuestionsContext } from './contexts/QuestionsContext';
 import './App.scss';
-import ProfileComponent from './pages/Profile';
+import { NavLinks, HomeLink } from './utils/StyledComponents';
 
 
 function App() {
@@ -29,12 +29,12 @@ function App() {
     <Router>
       <div className="App">
         <nav>
-          <div className="nav-links">
-            <NavLink to="/mentors">Mentors</NavLink>
-            <NavLink to="/questions">Questions</NavLink>
-            <NavLink to="/search">Search</NavLink>
-            <NavLink to="/feed">Feed</NavLink>
-          </div>
+          <NavLinks className="nav-links">
+            <HomeLink activeClassName="activeClass" to="/mentors">Mentors</HomeLink>
+            <HomeLink activeClassName="activeClass" to="/questions">Questions</HomeLink>
+            <HomeLink activeClassName="activeClass" to="/search">Search</HomeLink>
+            <HomeLink activeClassName="activeClass" to="/feed">Feed</HomeLink>
+          </NavLinks>
         </nav>
         <button><NavLink to='/ent-register'>Entrprenuer</NavLink></button>
         <button><NavLink to='/mentor-register'>Mentor</NavLink></button>
