@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Mod from '../components/Mod';
+import UserProfilePic from '../components/UserProfilePic';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 // * COMPONENT IMPORTS
 import { Info } from '../components/Questions/Info'
@@ -9,27 +12,22 @@ import { Button } from '../components/Questions/Button'
 // * STYLE IMPORTS (style-components)
 import style from '../components/Questions/StyledQuestions'
 
-// ? QUESTIONS PAGE
-const Questions = () => {
 
-    // * useState for temporary profile images
-    const [pic, setPic] = useState({});
+const Questions = (props) => {
+    const [questions, setQuestions] = useState([])
 
-    // ? AXIOS CALL FOR USER INFORMATION (User pictures)
     useEffect(() => {
-        axios.get(`https://randomuser.me/api/?inc=picture`)
-            .then(res => res.data.results[0])
-            .then(res => setPic(res.picture))
+        axiosWithAuth().get('/questions/')
+        .then(res => {
+        console.log('res =>',res)
+        setQuestions(res.data)
+        })
+        .catch(err => console.log(err.response))
     }, [])
 
-    // ! LOG DATA
-    console.log(pic)
-
-    return (
-        <style.section>
-
-            {/* //* TOP DIV FOR QUESTION.JS
-             */}
+            
+          
+         <style.section>
             <Info pic={pic} />
 
             {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DETAILS
@@ -39,6 +37,7 @@ const Questions = () => {
             {/* // * BUTTON FOR POSTED QUESTIONS & DESCRIPTION
              */}
             <Button />
+
         </style.section>
     )
 }
