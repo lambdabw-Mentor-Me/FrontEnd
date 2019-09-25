@@ -16,8 +16,8 @@ function StudentCard({review}){
         <div>
             <img src={review.image} />
             <div>
-                <h4>{review.name}</h4>
-                <p>{review.description}</p>
+                <h4>{review.title}</h4>
+                <p>{review.content}</p>
             </div>
         </div>
     )
