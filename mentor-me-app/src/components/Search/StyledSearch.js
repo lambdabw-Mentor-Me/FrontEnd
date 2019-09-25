@@ -9,84 +9,114 @@ const section = styled.section`
 const info = styled.div`
     ${'' /* // * INFO DIV LINK STYLES HERE 
     */}
-    
-    ${'' /* // * INFO TOP CONTAINER
-     */}
-    & > .info__top {
-        padding-top: 1rem;
-        margin: 0 1rem;
 
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
+    & > .info__main {
 
-        & > .local-time {
-            width: 15%;
-            font-size: 1.6rem;
-            font-weight: 600;
-        }
+        border-bottom: 2px solid #E2E8ED;
 
-        ${'' /* // * ICON STYLES HERE
+        ${'' /* // * INFO TOP CONTAINER
         */}
-        & > .icon-container {
-            width: 12%;
+        & > .info__top {
+            padding-top: 1rem;
+            margin: 0 1rem;
 
             display: flex;
             flex-flow: row nowrap;
-            justify-content: space-evenly;
+            justify-content: space-between;
 
-            & > .icon-signal {
-                height: 2vh;
-                width: 3vw;
+            & > .local-time {
+                width: 15%;
+                font-size: 1.6rem;
+                font-weight: 600;
             }
 
-            & > .icon-wifi {
-                height: 2vh;
-                width: 3vw;
+            ${'' /* // * ICON STYLES HERE
+            */}
+            & > .icon-container {
+                width: 12%;
+
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-evenly;
+
+                & > .icon-signal {
+                    height: 2vh;
+                    width: 3vw;
+                }
+
+                & > .icon-wifi {
+                    height: 2vh;
+                    width: 3vw;
+                }
+
+                & > .icon-battery {
+                    height: 2vh;
+                    width: 3vw;
+                }
+            }
+        }
+
+        ${'' /* // * INFO BOTTOM CONTAINER
+        */}
+        & > .info__bottom {
+            margin-bottom: 1rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & > .back-btn {
+            height: 3vh;
+            width: 5vw;
             }
 
-            & > .icon-battery {
-                height: 2vh;
-                width: 3vw;
+            & > .info__bottom-input {
+
+                width: 30%;
+
+                display: flex;
+                align-items: center;
+
+                & > input {
+                    margin-left: 1rem;
+                    height: 3.5rem;
+                    width: 30rem;
+                    background-color: rgba(0,0,0,0);
+                }
+
+                & > input:hover {
+                    border-bottom: 3px solid #61C1FF;
+                }
+
+                & > .x-btn {
+                    height: 2vh;
+                    width: 3vw;
+                    margin-left: 1rem;
+                }
             }
         }
     }
 
-    ${'' /* // * INFO BOTTOM CONTAINER
-    */}
-    & > .info__bottom {
+    ${'' /* // * INFO SELECTION
+     */}
+
+    .info__selection {
+
         display: flex;
-        justify-content: center;
-        align-items: center;
+        border-bottom: 2px solid #E2E8ED;
 
-        & > .back-btn {
-        height: 3vh;
-        width: 5vw;
-        }
-
-        & > .info__bottom-input {
-
-            width: 30%;
-
+        & > span {
             display: flex;
             align-items: center;
+            justify-content: center;
+            
+            font-size: 2.5rem;
+            width: 15%;
+            height: 5rem;
+        }
 
-            & > input {
-                margin-left: 1rem;
-                height: 3.5rem;
-                width: 30rem;
-                background-color: rgba(0,0,0,0);
-            }
-
-            & > input:hover {
-                border-bottom: 3px solid #61C1FF;
-            }
-
-            & > .x-btn {
-                height: 2vh;
-                width: 3vw;
-                margin-left: 1rem;
-            }
+        & > .active {
+            border-bottom: 3px solid #61C1FF;
         }
     }
 `;
