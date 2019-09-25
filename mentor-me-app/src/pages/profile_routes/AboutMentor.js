@@ -1,11 +1,28 @@
 import React from 'react';
+import styled from 'styled-components';
 
 
-export default function AboutMentor({heading, details}){
+export default function AboutMentor({mentor}){
+    const {heading, details} = mentor
+    console.log(heading);
+    
     return (
-        <div>
+        <AboutContainer>
             <h4>{heading}</h4>
             <p>{details}</p>
-        </div>
+        </AboutContainer>
     )
 }
+
+const AboutContainer = styled.div`
+    h4 {
+        font-size: 2rem;
+        color: gray;
+    }
+
+    p {
+        margin: 0;
+        line-height: 1.7rem;
+        color: black;
+    }
+`
