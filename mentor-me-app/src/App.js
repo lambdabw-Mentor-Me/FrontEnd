@@ -13,10 +13,12 @@ import EntLoginForm from './components/EntLoginForm';
 import MentorLoginForm from './components/MentorLoginForm';
 import MentorRegisterForm from './components/MentorRegisterForm';
 import Feed from './components/Feed';
+import MentorsList from './components/MentorsList'
 
 
 import { QuestionsContext } from './contexts/QuestionsContext';
 import './App.scss';
+import ProfileComponent from './pages/Profile';
 
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
       <div className="App">
         <nav>
           <div className="nav-links">
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/mentors">Mentors</NavLink>
             <NavLink to="/questions">Questions</NavLink>
             <NavLink to="/search">Search</NavLink>
             <NavLink to="/feed">Feed</NavLink>
@@ -44,6 +46,7 @@ function App() {
         <Route exact path='/mentor-register' component={MentorRegisterForm} />
         <Route  exact path='/mentor-login' component={MentorLoginForm} />
       
+          <PrivateRoute path='/mentors' component={MentorsList} />
           <PrivateRoute path='/profile' component={Profile} />
           <QuestionsContext.Provider value={[{ questions, setQuestions }]}> 
             <PrivateRoute path='/questions' component={Questions} />
