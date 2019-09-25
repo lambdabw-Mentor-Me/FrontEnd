@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Info = () => (
+export const Results = () => (
     <div>
         <div className={`card`}>
             {/* //? CARD DISPLAY INFORMATION

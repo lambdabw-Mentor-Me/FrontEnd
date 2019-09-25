@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Info = () => (
+export const BottomNav = () => (
     <div>
         <div className={`nav`}>
             {/* //? NAV DISPLAY FOR LINKS & ICONS
