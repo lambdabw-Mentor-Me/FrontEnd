@@ -11,7 +11,7 @@ import Reviews from '../pages/profile_routes/Reviews';
 const ProfileImage = styled.img``;
 
 const ParentDiv = styled.div`
-  width: 37.5rem;
+  width: 40rem;
   margin: 0 auto;
 `;
 
@@ -20,7 +20,7 @@ const SomeComponent = styled.div`
   img {
     height: 40rem;
     position: relative;
-		width: 37.5rem;
+		width: 40rem;
     top: 0;
     left: 0;
     right: 0;
@@ -31,7 +31,7 @@ const SomeComponent = styled.div`
   div {
     height: 40rem;
     position: absolute;
-		width: 37.5rem;
+		width: 40rem;
     top: 0;
     left: 0;
     opacity: .3;
