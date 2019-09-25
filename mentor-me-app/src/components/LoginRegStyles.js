@@ -5,8 +5,14 @@ const FormDiv = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-    * {
-        
+
+
+    a {
+        color:rgb(255,255,255,.82);
+
+        &:hover {
+            color:whitesmoke;
+        }
     }
 
     h1 {
@@ -31,7 +37,7 @@ const FormDiv = styled.div`
         border-bottom: 1px solid #FFFFFF99; 
         margin:2% .5%
         width:49%;
-        color:rgb(255,255,255,.82);
+        color:rgb(255,255,255,.6);
 
         ::placeholder{
             color:#FFFFFF99;
