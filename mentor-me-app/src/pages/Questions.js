@@ -25,8 +25,8 @@ const Questions = (props) => {
         .catch(err => console.log(err.response))
     }, [])
 
-            
-          
+         
+        return (  
          <style.section>
             <Info pic={pic} />
 
