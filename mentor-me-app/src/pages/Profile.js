@@ -3,9 +3,10 @@ import { NavLink, Route } from "react-router-dom";
 import Search from "./Search";
 import styled from "styled-components";
 
-import {dummyMentor, dummyStudents} from '../pages/profile_routes/data';
+import {dummyMentor, dummyStudents, dummyReviews} from '../pages/profile_routes/data';
 import Students from '../pages/profile_routes/Students';
 import AboutMentor from "./profile_routes/AboutMentor";
+import Reviews from '../pages/profile_routes/Reviews';
 
 const ProfileImage = styled.img``;
 
@@ -136,6 +137,10 @@ export default function ProfileComponent() {
           }} />
           <Route path="/profile/students" render={ props => {
             return <Students students = {dummyStudents} />
+          }} />
+
+          <Route path="/profile/reviews" render={ props => {
+            return <Reviews reviews = {dummyReviews} />
           }} />
         </DetailsContainer>
       </div>
