@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { NavLink } from 'react-router-dom';
 
-const EntRegisterForm = () => {
+const EntRegisterForm = (props) => {
     const [user, setUser] = useState({
         credentials: {
             email: '',
@@ -27,13 +27,13 @@ const EntRegisterForm = () => {
     const register = e => {
         e.preventDefault();
 
-        axiosWithAuth().post('/ent/register', user.credentials)
+        axiosWithAuth().post('/ment/register', user.credentials)
         .then(res => {
             console.log(res.data)
 
-            EntRegisterForm.props.history.push('/login')
+            props.history.push('/mentor-login')
 
-            localStorage.setItem('token', JSON.stringify(res.data.token))
+            localStorage.setItem('token', JSON.parse(res.data.token))
             localStorage.setItem('user', JSON.stringify(res.data.user))
 
             console.log(user)

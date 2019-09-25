@@ -23,13 +23,13 @@ const MentorLoginForm = (props) => {
     const login = e => {
         e.preventDefault();
 
-        axiosWithAuth().post('/mentor/login', user.credentials)
+        axiosWithAuth().post('/ment/login', user.credentials)
         .then(res => {
             console.log(res)
-            localStorage.setItem('token', res.data.token)
+            localStorage.setItem('token', JSON.stringify(res.data.token))
             localStorage.setItem('user', JSON.stringify(user))
 
-            MentorLoginForm.user.props.history.push('/questions')
+            props.history.push('/questions')
             console.log(user)
         })
         .catch(err => console.log(err.response))
