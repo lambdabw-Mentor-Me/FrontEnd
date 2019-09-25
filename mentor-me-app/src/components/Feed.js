@@ -7,21 +7,22 @@ const FeedBox = styled.div`
     
     display:flex;
     flex-direction:column;
-    align-items:flex-start;
-    width:100%;
+    align-items:center;
+    width:100vw;
 `;
 
 
 
 const Feed = (props) => {
-    const [questions, setQuestions] = useState({})
+    const [questions, setQuestions] = useState([])
 
     useEffect(() => {
 
         axiosWithAuth().get('/questions')
         .then(res => {
-        console.log('res =>',res.data, res)
-        setQuestions(res.data)
+        console.log('res =>',res.data, res);
+        setQuestions(res.data);
+        console.log(questions);
         })
         .catch(err => console.log(err.response))
     }, [])
@@ -29,9 +30,20 @@ const Feed = (props) => {
 
     return (
         <FeedBox>
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
+            {questions.map(question => 
+        
+        <FeedCard
+          key={question.id}
+          id={question.id}
+          question={question.question}
+          title={question.title}
+
+        />   
+
+
+      //name, type, dimension, residents
+    )
+    }
         </FeedBox>
         
     )

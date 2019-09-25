@@ -14,18 +14,16 @@ const FeedCard = (props) => {
         justify-content:flex-end;
         padding:20px;
         height:400px;
-        width:auto;
         background-image: url(${stringLinkingImage});
-        background-size:cover;
+        width:100%;
         max-width:800px;
         opacity:0;
-        left:830px;
+        left:840px;
         position:relative;
         animation: 1s ease-out 0s 1 slideInFromRight;
         animation-fill-mode:forwards;
         transition: 1s;
             
-
         &:nth-child(1) {
             -webkit-animation-delay: .2s;
         }
@@ -42,13 +40,11 @@ const FeedCard = (props) => {
             -webkit-animation-delay: .8s;
         }
 
-
         &:hover {
             transform: scale(1.02);
             max-width:816px;
             z-index:1;
             box-shadow: 10px 8px black;
-
         }
 
 
@@ -80,10 +76,9 @@ const FeedCard = (props) => {
         // probably set background image with style in here
         // <Card style={{backgroundImage: "url(" + stringLinkingImage + ")"}}>
         <Card>
-            <Name>Michael Harms</Name>
-            
-            <Category>Cybercoinology</Category>
-            <Question>Why do people say Bitcoin is fungible if there are blacklisted addresses associated with Iranian cybercrime?</Question>
+            <Name>{props.id}</Name>
+            <Category>{props.title}</Category>
+            <Question>{props.question}</Question>
         </Card>
         
     )
