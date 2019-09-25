@@ -5,7 +5,9 @@ const FormDiv = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-
+    textarea:focus, input:focus{
+        outline: none;
+    }
 
     a {
         color:rgb(255,255,255,.82);
