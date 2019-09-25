@@ -20,7 +20,6 @@ const InputContainer = styled.div`
 const Search = () => {
         const [questions, setQuestions] = useState([])
         const [query, setQuery] = useState("");
-
         const [ents, setEnts] = useState([]);
         
         useEffect(() => {
