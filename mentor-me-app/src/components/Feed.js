@@ -51,8 +51,10 @@ const Feed = (props) => {
 
     return (
         <FeedBox>
+
             {questions.map((question, key) => {
                 console.log(ents, question)
+
 
                 return <FeedCard
                     key={key}

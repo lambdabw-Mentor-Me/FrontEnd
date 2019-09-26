@@ -17,6 +17,7 @@ const InputContainer = styled.div`
 
 // ? SEARCH PAGE.
 const Search = () => {
+
     const [questions, setQuestions] = useState([])
     const [query, setQuery] = useState("");
 
@@ -37,6 +38,7 @@ const Search = () => {
 
     useEffect(() => {
         axiosWithAuth().get('/questions/')
+
             .then(res => {
                 // console.log('res =>', res);
                 setQuestions(res.data.filter(item => {
