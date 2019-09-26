@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import FeedCard from "./FeedCard";
 import styled from "styled-components"
+import anime from 'animejs/lib/anime.es.js';
 
 const FeedBox = styled.div`
     
@@ -12,7 +13,14 @@ const FeedBox = styled.div`
     margin: 0 auto;
 `;
 
-
+anime({
+    targets: 'button',
+    translateY: '10vh',
+    duration: 300,
+    loop: 4,
+    direction: 'alternate',
+    easing: 'easeInCubic'
+  });
 
 const Feed = (props) => {
     const [questions, setQuestions] = useState([])

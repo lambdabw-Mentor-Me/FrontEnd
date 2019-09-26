@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import './FeedCard.scss';
+import {Link} from "react-router-dom";
 
 const FeedCard = (props) => {
 
@@ -74,11 +75,13 @@ const FeedCard = (props) => {
     return (
         // probably set background image with style in here
         // <Card style={{backgroundImage: "url(" + stringLinkingImage + ")"}}>
-        <Card>
-            <Name>{props.id}</Name>
-            <Category>{props.title}</Category>
-            <Question>{props.question}</Question>
-        </Card>
+       
+            <Card>
+                <Link to="/profile"><Name>{props.id}</Name></Link>
+                <Link to="/questions"><Category>{props.title}</Category></Link>
+                <Link to="/questions"><Question>{props.question}</Question></Link>
+                
+            </Card>
         
     )
 } 
