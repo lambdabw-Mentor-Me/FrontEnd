@@ -110,9 +110,13 @@ const info = styled.div`
             align-items: center;
             justify-content: center;
             
-            font-size: 2.5rem;
-            width: 15%;
+            font-size: calc(0.5rem + 1.5vw);
+            width: 15vw;
             height: 6.5rem;
+        }
+
+        & > span:hover {
+            cursor: pointer;
         }
 
         & > .active {
@@ -150,12 +154,12 @@ const results = styled.div`
             justify-content: center;
 
             & > dt {
-                font-size: 4rem;
+                font-size: calc(3.5rem + 0.3vw);
                 font-weight: 600;
             }
 
             & > dd {
-                font-size: 2.5rem;
+                font-size: calc(2rem + 0.3rem);
             }
         }
     }

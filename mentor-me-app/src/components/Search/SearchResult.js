@@ -53,7 +53,7 @@ export const SearchResult = ({
             )}
             {/* // * BOTTOM COMPONENT DISPLAYING NAV BAR
         */}
-            <BottomNav />
+            {/* <BottomNav /> */}
         </div>
     )
 }
