@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import './FeedCard.scss';
+import {Link} from "react-router-dom";
+import anime from 'animejs/lib/anime.es.js';
+
+
+
 
 const FeedCard = (props) => {
-
+    
     let stringLinkingImage = "https://images.unsplash.com/photo-1564928275797-a7ab0852021d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1682&q=80";
     const Card = styled.div`
         color:white;
@@ -66,19 +71,29 @@ const FeedCard = (props) => {
         margin-bottom: 20px;
         text-align:center;
     `
+    
+    anime({
+        targets: 'a',
+        translateX: anime.stagger(10),
+        translateY: anime.stagger(5),
+        loop:4,
+        direction: 'alternate',
+        easing: 'easeInOutQuad'
+      });    
 
-        
 
 
 
     return (
         // probably set background image with style in here
         // <Card style={{backgroundImage: "url(" + stringLinkingImage + ")"}}>
-        <Card>
-            <Name>{props.id}</Name>
-            <Category>{props.title}</Category>
-            <Question>{props.question}</Question>
-        </Card>
+       
+            <Card>
+                <Link to="/profile"><Name className="name-info">{props.id}</Name></Link>
+                <Link to="/questions"><Category>{props.title}</Category></Link>
+                <Link to="/questions"><Question>{props.question}</Question></Link>
+                
+            </Card>
         
     )
 } 

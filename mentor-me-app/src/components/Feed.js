@@ -13,7 +13,6 @@ const FeedBox = styled.div`
 `;
 
 
-
 const Feed = (props) => {
     const [questions, setQuestions] = useState([])
     const [ents, setEnts] = useState([]);

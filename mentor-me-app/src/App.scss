@@ -1,4 +1,19 @@
-
+.App {
+    nav{
+        .nav-links{
+            
+            display:flex;
+            justify-content: space-evenly;
+            font-weight:bold;
+            a{
+                color: grey;
+            }
+            a.active{
+                color:whitesmoke;
+            }
+        }
+    }
+}
 .activeClass {
     border-bottom: 2px solid white;
     border-right: 2px solid white;

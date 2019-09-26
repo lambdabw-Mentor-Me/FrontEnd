@@ -49,11 +49,14 @@ function App() {
             <HomeLink activeClassName="activeClass" to="/feed">Feed</HomeLink>
           </NavLinks>
         </nav>
-        <button><NavLink to='/ent-register'>Entrprenuer</NavLink></button>
-        <button><NavLink to='/mentor-register'>Mentor</NavLink></button>
+        <div className="login-links">
+          <button><NavLink to='/ent-register'>Entrpreneur Register/Login</NavLink></button>
+          <button><NavLink to='/mentor-register'>Mentor Reigster/Login</NavLink></button>
+        </div>
       </div>
 
       <Switch>
+        <Route exact path='/' component={Home} />
         <Route exact path='/ent-register' component={EntRegisterForm} />
         <Route  exact path='/ent-login' component={EntLoginForm} />
         <Route exact path='/mentor-register' component={MentorRegisterForm} />
