@@ -23,8 +23,8 @@ const Feed = (props) => {
         // * CHECKSUM, AWAIT TRY FIRST, THEN CATCH ERRORS FOR HANDLING.
         try {
             return ents.find(obj => obj.id === item.entrepreneur_id).email
-        } catch (err) {
-            console.log(err)
+        } catch {
+            console.log('Loading data lag from backend, retrying return data.')
         }
     }
 
@@ -61,12 +61,7 @@ const Feed = (props) => {
                     title={question.title}
 
                 />
-            }
-
-
-                //name, type, dimension, residents
-            )
-            }
+            })}
         </FeedBox>
 
     )

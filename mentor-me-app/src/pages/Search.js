@@ -48,8 +48,6 @@ const Search = () => {
                     return (item.question.toLowerCase().includes(query.toLowerCase()) && query != "")
 
                 }))
-
-
             })
             .catch(err => console.log(err.response))
 
@@ -77,10 +75,10 @@ const Search = () => {
             {
                 questions.length > 0
                     ?
-                    <SearchResult 
-                    questions={questions} 
-                    clearQuery={clearQuery}
-                    query={query}
+                    <SearchResult
+                        questions={questions}
+                        clearQuery={clearQuery}
+                        query={query}
                     />
                     :
                     <InputContainer>
