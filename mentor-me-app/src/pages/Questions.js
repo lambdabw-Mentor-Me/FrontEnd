@@ -1,67 +1,93 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import QuestionContainer from "../components/QuestionContainer";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const Questions = (props) => {
-  const [questions, setQuestions] = useState([]);
+  const [title, setTitle] = useState('')
+  const [question, setQuestion] = useState('')
+  const [business_type, setBusiness_type] = useState('')
+  const [questions, setQuestions] = useState([{
+    title: '',
+    question: '',
+    business_type: '',
+    entrepreneur_id: null
+  }]);
 
-  console.log("question state", questions);
-
-//   const questionId = questions.find(
-//     question => `${question.id}` === props.match.params.id
-//   );
-//   console.log(questionId);
-
-  const fetchQuestions = () => {
+  const getQuestions = () => {
     axiosWithAuth()
-      .get(`/questions`)
+      .get("/questions")
       .then(res => {
-        console.log('THIS IS THE QUESTIONS', res.data)
-        setQuestions(res.data)
+        console.log(res.data);
+        setQuestions(res.data);
       })
-      .catch(err => console.log(err));
-  };
-//   console.log(questions)
-
-  const handleSubmit = () => {
-    //   console.log(question)
-    axiosWithAuth()
-      .post(`/questions`, questions)
-      .then(res => {
-        fetchQuestions()
-        console.log('THIS IS THE ENT ID', questions.entrepreneur_id)
-      })
-      .catch(err => console.log(err));
-  };
-
-  const handleUpdate = (question, id) => {
-    axiosWithAuth()
-      .put(`/questions/${id}`, question)
-      .then(res => fetchQuestions())
-      .catch(err => console.log(err));
-  };
-
-  const handleDelete = id => {
-    axiosWithAuth()
-      .delete(`questions/${id}`)
-      .then(res => fetchQuestions())
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err.response);
+      });
   };
 
   useEffect(() => {
-    fetchQuestions();
-  }, []);
+    getQuestions();
+  }, [questions]);
+
+  const postQuestion = (newQuestion) => {
+    axiosWithAuth().post('/questions', newQuestion)
+    .then(res => {
+      console.log('post post post question', res.data)
+      setQuestions([{
+        ...questions,
+        ...res.data
+      }])
+    })
+    .catch(err => console.log('posting question error', err.response))
+  } 
+
+  const handleChange = e => {
+    setQuestions([{
+      ...questions,
+      [e.target.name]: e.target.value
+    }])
+  }
+
   return (
-    <div className="App">
-      <QuestionContainer
-        questions={questions}
-        addQuestion={handleSubmit}
-        updateQuestion={handleUpdate}
-        deleteQuestion={handleDelete}
+    <>
+    <form onSubmit={(e) => {
+      e.preventDefault();
+      const newQuestion = {title, question, business_type}
+      postQuestion(newQuestion)
+      }}>
+      <input 
+        type='text'
+        name='title'
+        value={title}
+        onChange={e => setTitle(e.target.value)}
       />
+      <input 
+        type='text'
+        name='title'
+        value={question}
+        onChange={e => setQuestion(e.target.value)}
+      />
+      <input 
+        type='text'
+        name='title'
+        value={business_type}
+        onChange={e => setBusiness_type(e.target.value)}
+      />
+      <button type='submit'>Submit</button>
+    </form>
+    <div >
+     {questions.map((question, i) => {
+       return (
+         <div key={i}>
+         <h1>{question.title}</h1>
+         <h2>{question.question}</h2>
+         <h1>{question.business_type}</h1>
+         </div>
+       )
+     })}
     </div>
+    </>
   );
 }
 
