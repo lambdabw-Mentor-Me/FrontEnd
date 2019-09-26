@@ -14,16 +14,18 @@ import style from '../components/Questions/StyledQuestions'
 
 
 const Questions = (props) => {
-    const [questions, setQuestions] = useState([])
 
-    useEffect(() => {
-        axiosWithAuth().get('/questions/')
-        .then(res => {
-        console.log('res =>',res)
-        setQuestions(res.data)
-        })
-        .catch(err => console.log(err.response))
-    }, [])
+        const [questions, setQuestions] = useState([])
+
+        useEffect(() => {
+            axiosWithAuth().get(`/questions`)
+            .then(res => {
+            console.log(res.data)
+            setQuestions(res.data)
+            })
+            .catch(err => console.log(err.response))
+        }, [])
+
 
          
         return (  
@@ -33,7 +35,7 @@ const Questions = (props) => {
 
             {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DETAILS
              */}
-            <Description />
+            <Description questions={questions} setQuestions={setQuestions} {...props} />
 
             {/* // * BUTTON FOR POSTED QUESTIONS & DESCRIPTION
              */}

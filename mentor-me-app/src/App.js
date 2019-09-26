@@ -16,11 +16,24 @@ import Feed from './components/Feed';
 
 
 import { QuestionsContext } from './contexts/QuestionsContext';
+import { axiosWithAuth } from './utils/axiosWithAuth';
 import './App.scss';
 
 
 function App() {
-  const [questions, setQuestions] = useState([{}])
+  const [questions, setQuestions] = useState({
+    questions: []
+  })
+
+  useEffect(() => {
+
+    axiosWithAuth().get('/questions')
+    .then(res => {
+    console.log('res =>',res.data);
+    setQuestions(res.data);
+    })
+    .catch(err => console.log(err.response))
+}, [])
 
   return (
     <>
@@ -29,7 +42,7 @@ function App() {
         <nav>
           <div className="nav-links">
             <NavLink to="/profile">Profile</NavLink>
-            <NavLink to="/questions">Questions</NavLink>
+            <NavLink to="/questions/:id">Questions</NavLink>
             <NavLink to="/search">Search</NavLink>
             <NavLink to="/feed">Feed</NavLink>
           </div>
@@ -46,7 +59,7 @@ function App() {
       
           <PrivateRoute path='/profile' component={Profile} />
           <QuestionsContext.Provider value={[{ questions, setQuestions }]}> 
-            <PrivateRoute path='/questions' component={Questions} />
+            <PrivateRoute path='/questions/:id' component={Questions} />
             <PrivateRoute path='/search' component={Search} />
             <PrivateRoute path='/feed' component={Feed} />
           </QuestionsContext.Provider>
