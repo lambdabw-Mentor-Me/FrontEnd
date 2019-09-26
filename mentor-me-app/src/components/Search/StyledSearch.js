@@ -112,7 +112,7 @@ const info = styled.div`
             
             font-size: 2.5rem;
             width: 15%;
-            height: 5rem;
+            height: 6.5rem;
         }
 
         & > .active {
@@ -123,6 +123,42 @@ const info = styled.div`
 
 const results = styled.div`
     ${'' /* RESULTS DIV LINK STYLES HERE */}
+    border-bottom: 2px solid #E2E8ED;
+
+    & > .user__div {
+        display: flex;
+
+        padding: 2.5rem;
+        margin-left: 3rem;
+        ${'' /* background-color: blue; */}
+
+        & > .user-img {
+            display: flex;
+            align-items: center;
+
+            & > img {
+                border-radius: 1.5rem;
+                height: 90%;
+            }
+        }
+
+        & > .user-info {
+            margin-left: 3rem;
+
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+
+            & > dt {
+                font-size: 4rem;
+                font-weight: 600;
+            }
+
+            & > dd {
+                font-size: 2.5rem;
+            }
+        }
+    }
 `;
 
 const bottomNav = styled.div`
