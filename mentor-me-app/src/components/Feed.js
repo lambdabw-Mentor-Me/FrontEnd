@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import FeedCard from "./FeedCard";
 import styled from "styled-components"
-
+import './Feed.scss';
 const FeedBox = styled.div`
     
     display:flex;

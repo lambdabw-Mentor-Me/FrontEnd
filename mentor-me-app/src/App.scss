@@ -8,13 +8,17 @@
             a{
                 color: grey;
             }
-            a.active{
+            a:hover{
+                color:whitesmoke;
+            }
+            a:active{
                 color:whitesmoke;
             }
         }
     }
 }
 .activeClass {
+    color:whitesmoke;
     border-bottom: 2px solid white;
     border-right: 2px solid white;
     padding-right: .8rem;
