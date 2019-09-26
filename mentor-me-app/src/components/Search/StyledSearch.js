@@ -112,7 +112,7 @@ const info = styled.div`
             
             font-size: 2.5rem;
             width: 15%;
-            height: 5rem;
+            height: 6.5rem;
         }
 
         & > .active {
