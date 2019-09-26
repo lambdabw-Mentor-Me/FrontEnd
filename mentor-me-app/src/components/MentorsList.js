@@ -63,4 +63,5 @@ const MentorList = styled.div`
     display: flex;
     width: 80rem;
     margin: 0 auto;
+    flex-wrap: wrap;
 `
