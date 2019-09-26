@@ -1,48 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Mod from '../components/Mod';
-import UserProfilePic from '../components/UserProfilePic';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-// * COMPONENT IMPORTS
-import { Info } from '../components/Questions/Info'
-import { Description } from '../components/Questions/Description'
-import { Button } from '../components/Questions/Button'
-
-// * STYLE IMPORTS (style-components)
-import style from '../components/Questions/StyledQuestions'
-
+import QuestionContainer from "../components/QuestionContainer";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const Questions = (props) => {
+  const [questions, setQuestions] = useState([]);
 
-        const [questions, setQuestions] = useState([])
+  console.log("question state", questions);
 
-        useEffect(() => {
-            axiosWithAuth().get(`/questions`)
-            .then(res => {
-            console.log(res.data)
-            setQuestions(res.data)
-            })
-            .catch(err => console.log(err.response))
-        }, [])
+  const questionId = questions.find(
+    question => `${question.id}` === props.match.params.id
+  );
+  console.log(questionId);
 
+  const fetchQuestions = () => {
+    axiosWithAuth()
+      .get(`/questions${questionId}`)
+      .then(res => setQuestions(res.data))
+      .catch(err => console.log(err));
+  };
+  console.log(questions)
 
-         
-        return (  
-         <style.section>
-             {/* pic={pic} */}
-            <Info  />
+  const handleSubmit = (question, id) => {
+    axiosWithAuth()
+      .post(`/questions/${question.id}`, question)
+      .then(res => {
+        fetchQuestions()
+        console.log(alert('You have successfully submitted your form'))
+      })
+      .catch(err => console.log(err));
+  };
 
-            {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DETAILS
-             */}
-            <Description questions={questions} setQuestions={setQuestions} {...props} />
+  const handleUpdate = (question, id) => {
+    axiosWithAuth()
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, question)
+      .then(res => fetchQuestions())
+      .catch(err => console.log(err));
+  };
 
-            {/* // * BUTTON FOR POSTED QUESTIONS & DESCRIPTION
-             */}
-            <Button />
+  const handleDelete = id => {
+    axiosWithAuth()
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => fetchQuestions())
+      .catch(err => console.log(err));
+  };
 
-        </style.section>
-    )
+  useEffect(() => {
+    fetchQuestions();
+  }, []);
+  return (
+    <div className="App">
+      <QuestionContainer
+        questions={questions}
+        addQuestion={handleSubmit}
+        updateQuestion={handleUpdate}
+        deleteQuestion={handleDelete}
+      />
+    </div>
+  );
 }
 
 export default Questions;
