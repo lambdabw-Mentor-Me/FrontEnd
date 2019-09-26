@@ -1,72 +1,94 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Modal, Button, Input } from 'antd';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+// import React, { useState, useEffect, useContext } from 'react';
+// import { Modal, Button, Input } from 'antd';
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
+// import { QuestionsContext } from '../contexts/QuestionsContext';
 
-const { TextArea } = Input;
+// const getQuestions = () => {
+//   const {
+//     title,
+//     question,
+//     businessType,
+//     id
+//   } = useContext(QuestionsContext)
+// }
 
-const initialState = {
-  "title": 'bobby', 
-  "question": 'is bobby cool?', 
-  "business_type": 'bob', 
-}
+// const { TextArea } = Input;
 
-const Mod = () => {
-  const [visible, setVisible] = useState(false)
-  const [question, setQuestion] = useState({})
 
-  const handleChange = e => {
-    setQuestion({
-      [e.target.name]: e.target.value
-    })
-  }
+// const Mod = (props) => {
+//   const [visible, setVisible] = useState(false)
+//   // const [question, setQuestion] = useContext(QuestionsContext)
+//   // const [postQuestion, setPostQuestion] = useState({
+//   //   question: {
+//   //     title: '',
+//   //     question: '',
+//   //     'bussiness-type': ''
+//   //   }
+//   // })
+  
+//   const { match } = props;
+//   useEffect(() => {
+//     // const questionToDisplay = question.find(
+//     //   itemInList => `${itemInList.id}` === match.params.id
+//     //   )
+//     //   console.log(questionToDisplay)
+//   }, [])
 
-  const showModal = () => {
-    return setVisible(true) ? 
-    visible : !visible
-  };
+//   const handleOk = e => {
+//     e.preventDefault();
 
-  const handleOk = e => {
-    e.preventDefault();
 
-    axiosWithAuth().post('/questions', initialState)
-    .then(res => {
-      // console.log(question)
-      setQuestion(res.data.payload)
-    })
-    .then(
-      setVisible(false),
-      setQuestion('')
-    )
-    .catch(err => console.log(err.response))
+//     axiosWithAuth().post(`/questions/${question.id}`, question)
+//     .then(res => {
+//       // console.log(question)
+//       setQuestion(res.data.value)
+//     })
+//     .then(
+//       setVisible(false),
+//       setQuestion('')
+//     )
+//     .catch(err => console.log(err.response))
    
-  };
+//   };
 
-  const handleCancel = e => {
-    console.log(e);
-    setVisible(false)
-    setQuestion('');
-  };
+//     const handleCancel = e => {
+//       console.log(e);
+//       setVisible(false)
+//       setQuestion('')
+//     };
 
-    return (
-      <div>
-        <Button type="primary" onClick={showModal}>
-          Ask a question
-        </Button>
-        <Modal
-          title="Ask away..."
-          visible={visible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Input onChange={handleChange} style={{ marginBottom: 15 }} placeholder="Title" />
-          <TextArea style={{ marginBottom: 15 }}
-          placeholder='Ask a question'
-          autosize={{ minRows: 2, maxRows: 6 }}
-        />
-          <Input onChange={handleChange} placeholder="Business Type" />
-        </Modal>
-      </div>
-    );
-}
+//     const handleChange = e => {
+//       setQuestion({
+//         [e.target.name]: e.target.value
+//       })
+//     }
 
-export default Mod;
+//     const showModal = () => {
+//       return setVisible(true) ? 
+//       visible : !visible
+//     };
+
+//     return (
+//       <div>
+//         <Button type="primary" onClick={showModal}>
+//           Ask a question
+//         </Button>
+//         <Modal
+//           title="Ask away..."
+//           visible={visible}
+//           onOk={handleOk}
+//           onCancel={handleCancel}
+//           // value={}
+//         >
+//           <Input onChange={handleChange} style={{ marginBottom: 15 }} placeholder="Title" />
+//           <TextArea style={{ marginBottom: 15 }}
+//           placeholder='Ask a question'
+//           autosize={{ minRows: 2, maxRows: 6 }}
+//         />
+//           <Input onChange={handleChange} placeholder="Business Type" />
+//         </Modal>
+//       </div>
+//     );
+// }
+
+// export default Mod;

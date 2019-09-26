@@ -31,9 +31,9 @@ const EntRegisterForm = (props) => {
             props.history.push('/ent-login')
 
             localStorage.setItem('token', JSON.parse(res.data.token))
-            localStorage.setItem('user', JSON.stringify(res.data.user))
+            localStorage.setItem('id', JSON.stringify(res.data.id))
 
-            console.log(user)
+            console.log(res.data.id)
         })
         .catch(err => console.log(err.response))
     }

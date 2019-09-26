@@ -17,12 +17,25 @@ import MentorsList from './components/MentorsList'
 
 
 import { QuestionsContext } from './contexts/QuestionsContext';
+import { axiosWithAuth } from './utils/axiosWithAuth';
 import './App.scss';
 import { NavLinks, HomeLink } from './utils/StyledComponents';
 
 
 function App() {
-  const [questions, setQuestions] = useState([{}])
+  const [questions, setQuestions] = useState({
+    questions: []
+  })
+
+  useEffect(() => {
+
+    axiosWithAuth().get('/questions')
+    .then(res => {
+    console.log('res =>',res.data);
+    setQuestions(res.data);
+    })
+    .catch(err => console.log(err.response))
+}, [])
 
   return (
     <>
@@ -49,7 +62,7 @@ function App() {
           <PrivateRoute path='/mentors' component={MentorsList} />
           <PrivateRoute path='/profile' component={Profile} />
           <QuestionsContext.Provider value={[{ questions, setQuestions }]}> 
-            <PrivateRoute path='/questions' component={Questions} />
+            <PrivateRoute exact path='/questions' component={Questions} />
             <PrivateRoute path='/search' component={Search} />
             <PrivateRoute path='/feed' component={Feed} />
           </QuestionsContext.Provider>

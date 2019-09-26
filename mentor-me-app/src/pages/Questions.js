@@ -1,46 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Mod from '../components/Mod';
-import UserProfilePic from '../components/UserProfilePic';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-// * COMPONENT IMPORTS
-import { Info } from '../components/Questions/Info'
-import { Description } from '../components/Questions/Description'
-import { Button } from '../components/Questions/Button'
-
-// * STYLE IMPORTS (style-components)
-import style from '../components/Questions/StyledQuestions'
-
+import QuestionContainer from "../components/QuestionContainer";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const Questions = (props) => {
-    const [questions, setQuestions] = useState([])
+  const [questions, setQuestions] = useState([]);
 
-    useEffect(() => {
-        axiosWithAuth().get('/questions/')
-        .then(res => {
-        console.log('res =>',res)
+  console.log("question state", questions);
+
+//   const questionId = questions.find(
+//     question => `${question.id}` === props.match.params.id
+//   );
+//   console.log(questionId);
+
+  const fetchQuestions = () => {
+    axiosWithAuth()
+      .get(`/questions`)
+      .then(res => {
+        console.log('THIS IS THE QUESTIONS', res.data)
         setQuestions(res.data)
-        })
-        .catch(err => console.log(err.response))
-    }, [])
+      })
+      .catch(err => console.log(err));
+  };
+//   console.log(questions)
 
-         
-        return (  
-         <style.section>
-             {/* pic={pic} */}
-            <Info  />
+  const handleSubmit = () => {
+    //   console.log(question)
+    axiosWithAuth()
+      .post(`/questions`, questions)
+      .then(res => {
+        fetchQuestions()
+        console.log('THIS IS THE ENT ID', questions.entrepreneur_id)
+      })
+      .catch(err => console.log(err));
+  };
 
-            {/* // * MIDDLE DIV FOR POSTED QUESTIONS & DETAILS
-             */}
-            <Description />
+  const handleUpdate = (question, id) => {
+    axiosWithAuth()
+      .put(`/questions/${id}`, question)
+      .then(res => fetchQuestions())
+      .catch(err => console.log(err));
+  };
 
-            {/* // * BUTTON FOR POSTED QUESTIONS & DESCRIPTION
-             */}
-            <Button />
+  const handleDelete = id => {
+    axiosWithAuth()
+      .delete(`questions/${id}`)
+      .then(res => fetchQuestions())
+      .catch(err => console.log(err));
+  };
 
-        </style.section>
-    )
+  useEffect(() => {
+    fetchQuestions();
+  }, []);
+  return (
+    <div className="App">
+      <QuestionContainer
+        questions={questions}
+        addQuestion={handleSubmit}
+        updateQuestion={handleUpdate}
+        deleteQuestion={handleDelete}
+      />
+    </div>
+  );
 }
 
 export default Questions;
