@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Input } from "antd";
 
 // * COMPONENT IMPORTS
-import { Info } from '../components/Search/Info'
-import { Results } from '../components/Search/Results'
-import { BottomNav } from '../components/Search/BottomNav'
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import styled from "styled-components";
-import {Input} from "antd";
+import { SearchResult } from '../components/Search/SearchResult'
+
 // * STYLE IMPORTS (style-components)
+import styled from "styled-components";
 import style from '../components/Search/StyledSearch';
 
 const InputContainer = styled.div`
@@ -18,82 +17,76 @@ const InputContainer = styled.div`
 
 // ? SEARCH PAGE.
 const Search = () => {
-        const [questions, setQuestions] = useState([])
-        const [query, setQuery] = useState("");
-        const [ents, setEnts] = useState([]);
 
-        const entObject = (item) => ents.find(obj => obj.id == item.entrepreneur_id).email
-        
-        useEffect(() => {
-            axiosWithAuth().get("/ent/all")
-                .then(res => {
-                    console.log("ents", res)
-                    setEnts(res.data)
-                    
-                })},[])
-                
+    const [questions, setQuestions] = useState([])
+    const [query, setQuery] = useState("");
 
-        useEffect(() => {
-            axiosWithAuth().get('/questions/')
+    const [entreprenuers, setEntreprenuers] = useState([]);
+
+    // * CLEAR QUERY
+    const clearQuery = () => setQuery("");
+
+    useEffect(() => {
+        axiosWithAuth().get("/ent/all")
             .then(res => {
-                console.log('res =>',res);
+                // console.log("ents", res)
+                setEntreprenuers(res.data)
+
+            })
+    }, [])
+
+
+    useEffect(() => {
+        axiosWithAuth().get('/questions/')
+
+            .then(res => {
+                // console.log('res =>', res);
                 setQuestions(res.data.filter(item => {
                     console.log("filtering", item);
-                    console.log("query", query.toLowerCase());
-                    console.log("question", item.question.toLowerCase());
-                    console.log("Filter test" , item.question.toLowerCase().includes(query.toLowerCase()));
-                    
-                    return (item.question.toLowerCase().includes(query.toLowerCase())  && query != "")
+                    // console.log("query", query.toLowerCase());
+                    // console.log("question", item.question.toLowerCase());
+                    // console.log("Filter test", item.question.toLowerCase().includes(query.toLowerCase()));
+
+                    return (item.question.toLowerCase().includes(query.toLowerCase()) && query != "")
 
                 }))
-            
-            
             })
             .catch(err => console.log(err.response))
-            
-            
-        }, [query])
 
-        const handleSearch = (value, event) => {
-            
-            setQuery(value);
-            console.log(query);
-        };
+
+    }, [query])
+
+    const handleSearch = (value, e) => {
+        // * PREVENT DEFAULT ACTIONS
+        e.preventDefault();
+
+        setQuery(value);
+        console.log(query);
+    };
 
     return (
         <style.section>
-            {/* // * TOP COMPONENT DISPLAYING INPUT SEARCH FUNCTIONALITY
-            */}
-            <Info />
 
-            <InputContainer>
-                <Input.Search onSearch={handleSearch} />
-            </InputContainer>
+            {/* // ! LOG DATA
+             */}{console.log(questions)}
 
-            <div className="search-results-container">
-                {questions.map(item => {
-                    return (
-                        <div className="search-result" key={item.id}>
-                        <h2>
-                            <span aria-label="sparkles" role="img">
-                            ✨
-                            </span>
-                            {item.question}
-                        </h2>
-                        <h3>{item.title}</h3>
-                        <h3 className="Email">{entObject(item) && entObject(item)}</h3>
-                        </div>
-                    );
-                })}
-            </div>
+            {/* // ? IF DATA EXIST, RENDER SEARCHRESULTS COMPONENT
+                // ? ELSE, RETURN THE SEARCH BAR TO FILL QUESTIONS.
+             */}
 
-            {/* // * MIDDLE COMPONENT DISPLAYING RESULTS OF SEARCH
-            */}
-            <Results />
-
-            {/* // * BOTTOM COMPONENT DISPLAYING NAV BAR
-            */}
-            <BottomNav />
+            {
+                questions.length > 0
+                    ?
+                    <SearchResult
+                        questions={questions}
+                        clearQuery={clearQuery}
+                        query={query}
+                    />
+                    :
+                    <InputContainer>
+                        <Input.Search onSearch={handleSearch} />
+                    </InputContainer>
+            }
         </style.section>
     )
 }

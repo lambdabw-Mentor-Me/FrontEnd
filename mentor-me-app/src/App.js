@@ -13,26 +13,41 @@ import EntLoginForm from './components/EntLoginForm';
 import MentorLoginForm from './components/MentorLoginForm';
 import MentorRegisterForm from './components/MentorRegisterForm';
 import Feed from './components/Feed';
+import MentorsList from './components/MentorsList'
 
 
 import { QuestionsContext } from './contexts/QuestionsContext';
+import { axiosWithAuth } from './utils/axiosWithAuth';
 import './App.scss';
+import { NavLinks, HomeLink } from './utils/StyledComponents';
 
 
 function App() {
-  const [questions, setQuestions] = useState([{}])
+  const [questions, setQuestions] = useState({
+    questions: []
+  })
+
+  useEffect(() => {
+
+    axiosWithAuth().get('/questions')
+    .then(res => {
+    console.log('res =>',res.data);
+    setQuestions(res.data);
+    })
+    .catch(err => console.log(err.response))
+}, [])
 
   return (
     <>
     <Router>
       <div className="App">
         <nav>
-          <div className="nav-links">
-            <NavLink to="/profile">Profile</NavLink>
-            <NavLink to="/questions">Questions</NavLink>
-            <NavLink to="/search">Search</NavLink>
-            <NavLink to="/feed">Feed</NavLink>
-          </div>
+          <NavLinks className="nav-links">
+            <HomeLink activeClassName="activeClass" to="/mentors">Mentors</HomeLink>
+            <HomeLink activeClassName="activeClass" to="/questions">Questions</HomeLink>
+            <HomeLink activeClassName="activeClass" to="/search">Search</HomeLink>
+            <HomeLink activeClassName="activeClass" to="/feed">Feed</HomeLink>
+          </NavLinks>
         </nav>
         <button><NavLink to='/ent-register'>Entrpreneur</NavLink></button>
         <button><NavLink to='/mentor-register'>Mentor</NavLink></button>
@@ -44,9 +59,10 @@ function App() {
         <Route exact path='/mentor-register' component={MentorRegisterForm} />
         <Route  exact path='/mentor-login' component={MentorLoginForm} />
       
+          <PrivateRoute path='/mentors' component={MentorsList} />
           <PrivateRoute path='/profile' component={Profile} />
           <QuestionsContext.Provider value={[{ questions, setQuestions }]}> 
-            <PrivateRoute path='/questions' component={Questions} />
+            <PrivateRoute exact path='/questions' component={Questions} />
             <PrivateRoute path='/search' component={Search} />
             <PrivateRoute path='/feed' component={Feed} />
           </QuestionsContext.Provider>
