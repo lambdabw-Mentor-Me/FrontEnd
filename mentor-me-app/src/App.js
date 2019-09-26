@@ -51,7 +51,7 @@ function App() {
         </nav>
         <div className="login-links">
           <button><NavLink to='/ent-register'>Entrpreneur Register/Login</NavLink></button>
-          <button><NavLink to='/mentor-register'>Mentor Register/Login</NavLink></button>
+          <button><NavLink to='/mentor-register'>Mentor Reigster/Login</NavLink></button>
         </div>
       </div>
 
