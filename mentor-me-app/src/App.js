@@ -27,16 +27,6 @@ function App() {
     questions: []
   })
 
-  useEffect(() => {
-
-    axiosWithAuth().get('/questions')
-    .then(res => {
-    console.log('res =>',res.data);
-    setQuestions(res.data);
-    })
-    .catch(err => console.log(err.response))
-}, [])
-
   return (
     <>
     <Router>
