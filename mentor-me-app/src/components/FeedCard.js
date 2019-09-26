@@ -76,7 +76,7 @@ const FeedCard = (props) => {
         targets: 'a',
         translateX: anime.stagger(10),
         translateY: anime.stagger(5),
-        loop:4,
+        loop:2,
         direction: 'alternate',
         easing: 'easeInOutQuad'
       });    

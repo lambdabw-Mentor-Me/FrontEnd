@@ -5,18 +5,10 @@ import {Link} from "react-router-dom";
 
 const Home = () => {
 
-    const Logo = styled.div`
-        
-        width:200px;
-        background-color:white;
-
-    `
-
-
-    return (
+   return (
         <div className="welcome">
             <h1>Welcome to Mentor Me!</h1>
-            <Link to="/ent-register"><img src={mainLogo} /></Link>
+            <Link to="/ent-register"><img src={mainLogo} alt="Mentor Me App Logo" /></Link>
         </div>
     )
 } 
