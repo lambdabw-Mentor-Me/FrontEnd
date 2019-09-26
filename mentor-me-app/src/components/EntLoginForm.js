@@ -28,10 +28,10 @@ const EntLoginForm = (props) => {
         .then(res => {
             console.log(res)
             localStorage.setItem('token', JSON.stringify(res.data.token))
-            localStorage.setItem('user', JSON.stringify(user))
+            localStorage.setItem('id', JSON.stringify(res.data.id))
 
            props.history.push('/questions')
-            console.log(user)
+            console.log(res.id)
         })
         .catch(err => console.log(err.response))
     }

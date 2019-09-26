@@ -6,7 +6,9 @@ const QuestionContainer = props => {
 
   const [input, setInput] = useState({
     title: "",
-    textBody: ""
+    question: "",
+    business_type: "",
+    entrepreneur_id: localStorage.getItem('id')
   });
 
   const handleInput = e => {
@@ -18,8 +20,11 @@ const QuestionContainer = props => {
     props.addQuestion(input);
     setInput({
       title: "",
-      textBody: ""
+      question: "",
+      business_type: "",
+      entrepreneur_id: localStorage.getItem('id')
     });
+    console.log(input)
   };
 
   return (
@@ -34,11 +39,18 @@ const QuestionContainer = props => {
           value={input.title}
           onChange={handleInput}
         />
-        <label htmlFor="Text Body">Text Body</label>
+        <label htmlFor="question">question</label>
         <input
           type="text"
-          name="textBody"
-          value={input.textBody}
+          name="question"
+          value={input.question}
+          onChange={handleInput}
+        />
+         <label htmlFor="business_type">business type</label>
+        <input
+          type="text"
+          name="business_type"
+          value={input.business_type}
           onChange={handleInput}
         />
         <button>add Question</button>

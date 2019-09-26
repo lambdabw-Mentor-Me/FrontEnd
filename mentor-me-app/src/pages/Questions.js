@@ -9,39 +9,43 @@ const Questions = (props) => {
 
   console.log("question state", questions);
 
-  const questionId = questions.find(
-    question => `${question.id}` === props.match.params.id
-  );
-  console.log(questionId);
+//   const questionId = questions.find(
+//     question => `${question.id}` === props.match.params.id
+//   );
+//   console.log(questionId);
 
   const fetchQuestions = () => {
     axiosWithAuth()
-      .get(`/questions${questionId}`)
-      .then(res => setQuestions(res.data))
+      .get(`/questions`)
+      .then(res => {
+        console.log('THIS IS THE QUESTIONS', res.data)
+        setQuestions(res.data)
+      })
       .catch(err => console.log(err));
   };
-  console.log(questions)
+//   console.log(questions)
 
-  const handleSubmit = (question, id) => {
+  const handleSubmit = () => {
+    //   console.log(question)
     axiosWithAuth()
-      .post(`/questions/${question.id}`, question)
+      .post(`/questions`, questions)
       .then(res => {
         fetchQuestions()
-        console.log(alert('You have successfully submitted your form'))
+        console.log('THIS IS THE ENT ID', questions.entrepreneur_id)
       })
       .catch(err => console.log(err));
   };
 
   const handleUpdate = (question, id) => {
     axiosWithAuth()
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, question)
+      .put(`/questions/${id}`, question)
       .then(res => fetchQuestions())
       .catch(err => console.log(err));
   };
 
   const handleDelete = id => {
     axiosWithAuth()
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`questions/${id}`)
       .then(res => fetchQuestions())
       .catch(err => console.log(err));
   };
