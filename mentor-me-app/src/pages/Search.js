@@ -22,12 +22,13 @@ const Search = () => {
 
     const [entreprenuers, setEntreprenuers] = useState([]);
 
-    const entObject = (item) => entreprenuers.find(obj => obj.id == item.id).email
+    // * CLEAR QUERY
+    const clearQuery = () => setQuery("");
 
     useEffect(() => {
         axiosWithAuth().get("/ent/all")
             .then(res => {
-                console.log("ents", res)
+                // console.log("ents", res)
                 setEntreprenuers(res.data)
 
             })
@@ -37,7 +38,7 @@ const Search = () => {
     useEffect(() => {
         axiosWithAuth().get('/questions/')
             .then(res => {
-                console.log('res =>', res);
+                // console.log('res =>', res);
                 setQuestions(res.data.filter(item => {
                     console.log("filtering", item);
                     // console.log("query", query.toLowerCase());
@@ -55,7 +56,9 @@ const Search = () => {
 
     }, [query])
 
-    const handleSearch = (value, event) => {
+    const handleSearch = (value, e) => {
+        // * PREVENT DEFAULT ACTIONS
+        e.preventDefault();
 
         setQuery(value);
         console.log(query);
@@ -74,7 +77,11 @@ const Search = () => {
             {
                 questions.length > 0
                     ?
-                    <SearchResult questions={questions} />
+                    <SearchResult 
+                    questions={questions} 
+                    clearQuery={clearQuery}
+                    query={query}
+                    />
                     :
                     <InputContainer>
                         <Input.Search onSearch={handleSearch} />

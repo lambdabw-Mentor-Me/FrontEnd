@@ -6,7 +6,11 @@ import { Info } from './Info'
 import { Results } from './Results'
 import { BottomNav } from './BottomNav'
 
-export const SearchResult = ({ questions }) => {
+export const SearchResult = ({ 
+    questions,
+    clearQuery,
+    query
+}) => {
 
     // * STATE FOR NEW DATA OBJECTS AS USER DATA
     const [users, setUsers] = useState([])
@@ -37,7 +41,7 @@ export const SearchResult = ({ questions }) => {
             {console.log(questions)}
             {/* // * TOP COMPONENT DISPLAYING INPUT SEARCH FUNCTIONALITY
         */}
-            <Info />
+            <Info clearQuery={clearQuery} query={query} />
             {/* // * MIDDLE COMPONENT DISPLAYING RESULTS OF SEARCH
         */}
             {users.map((user, key) =>

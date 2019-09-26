@@ -11,7 +11,7 @@ import { ReactComponent as Battery } from '../Assets/SVG/battery-full-solid.svg'
 import { ReactComponent as Back } from '../Assets/SVG/back.svg';
 import { ReactComponent as X } from '../Assets/SVG/x.svg';
 
-export const Info = () => {
+export const Info = ({clearQuery, query}) => {
     const [active, setActive] = useState({
         newest: false,
         category: false
@@ -84,9 +84,12 @@ export const Info = () => {
                     <div className={`info__bottom-input`}>
                         <input
                             type="text"
-                            value="" />
+                            value={`${query}`} />
 
-                        <X className={`x-btn`} />
+                        <X 
+                        className={`x-btn`} 
+                        onClick={() => clearQuery()}
+                        />
                     </div>
                 </div>
             </div>
