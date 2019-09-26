@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import {NavLink} from 'react-router-dom';
+import anime from 'animejs/lib/anime.es.js';
 
 export default function MentorsList() {
   const [mentors, setMentors] = useState([]);
@@ -27,7 +28,19 @@ export default function MentorsList() {
 }
 
 
+
 function MentorCard({mentor}){
+
+    anime({
+        targets: 'nav a',
+        translateX: anime.stagger(-10, {from: 'last'}),
+        translateY: anime.stagger(5, {from: 'last'}),
+        loop:2,
+        direction: 'alternate',
+        easing: 'easeInOutQuad'
+      });    
+
+
     return (
         <NavLink to="/profile">
             <StyledMentor>

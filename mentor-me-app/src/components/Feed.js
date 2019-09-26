@@ -3,8 +3,8 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 import FeedCard from "./FeedCard";
 import styled from "styled-components"
 import './Feed.scss';
-const FeedBox = styled.div`
-    
+
+const FeedBox = styled.div` 
     display:flex;
     flex-direction:column;
     align-items:center;
