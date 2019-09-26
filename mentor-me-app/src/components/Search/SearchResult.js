@@ -13,20 +13,20 @@ export const SearchResult = ({ questions }) => {
 
     useEffect(() => {
         axios.get(`https://randomuser.me/api/?inc=name,picture&results=${questions.length}`)
-        .then(res => res.data.results)
-        .then(res => {
-            // * CONTAINER FOR NEW JOINED OBJECTS FROM QUESTIONS PROPS && MOCK DATA OBJECTS
-            const newQuestions = []
+            .then(res => res.data.results)
+            .then(res => {
+                // * CONTAINER FOR NEW JOINED OBJECTS FROM QUESTIONS PROPS && MOCK DATA OBJECTS
+                const newQuestions = []
 
-            // * JOIN BOTH OBJECTS FROM API MOCK DATA && PASSED PROP DATA
-            for (let i = 0; i < res.length; i++) {
-                newQuestions.push({...questions[i], ...res[i]})
-                console.log(newQuestions)
-            }
+                // * JOIN BOTH OBJECTS FROM API MOCK DATA && PASSED PROP DATA
+                for (let i = 0; i < res.length; i++) {
+                    newQuestions.push({ ...questions[i], ...res[i] })
+                    console.log(newQuestions)
+                }
 
-            // * SET NEW STATE
-            setUsers(newQuestions)
-        })
+                // * SET NEW STATE
+                setUsers(newQuestions)
+            })
     }, [])
 
     // ! LOG USER DATA
@@ -40,7 +40,13 @@ export const SearchResult = ({ questions }) => {
             <Info />
             {/* // * MIDDLE COMPONENT DISPLAYING RESULTS OF SEARCH
         */}
-            <Results />
+            {users.map((user, key) =>
+                <Results
+                    key={key}
+                    name={user.name}
+                    picture={user.picture}
+                    business_type={user.business_type} />
+            )}
             {/* // * BOTTOM COMPONENT DISPLAYING NAV BAR
         */}
             <BottomNav />
