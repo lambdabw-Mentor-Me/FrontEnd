@@ -16,6 +16,15 @@ const FeedBox = styled.div`
 
 const Feed = (props) => {
     const [questions, setQuestions] = useState([])
+    const [ents, setEnts] = useState([]);
+
+    useEffect(() => {
+        axiosWithAuth().get("/ent/all")
+            .then(res => {
+                console.log("ents", res)
+                setEnts(res.data)
+                
+            })},[])
 
     useEffect(() => {
 
@@ -35,7 +44,7 @@ const Feed = (props) => {
         
         <FeedCard
           key={question.id}
-          id={question.id}
+          id={ents.find(obj => obj.id == question.entrepreneur_id).email}
           question={question.question}
           title={question.title}
 
