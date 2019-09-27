@@ -3,6 +3,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 import FeedCard from "./FeedCard";
 import styled from "styled-components"
 import './Feed.scss';
+import axios from "axios";
 
 const FeedBox = styled.div` 
     display:flex;
@@ -16,6 +17,8 @@ const FeedBox = styled.div`
 const Feed = (props) => {
     const [questions, setQuestions] = useState([])
     const [ents, setEnts] = useState([]);
+    const [photos, setPhotos] = useState([]);
+
 
     const entObject = (item) => {
 
@@ -26,14 +29,24 @@ const Feed = (props) => {
             console.log('Loading data lag from backend, retrying return data.')
         }
     }
+    useEffect(() => {
+        axios.get("https://picsum.photos/v2/list")
+    .then(res => {
+        
+        setPhotos(res.data);
+        
+        }).catch(err => console.log(err.response))
+    },[])
 
+
+    
     useEffect(() => {
         axiosWithAuth().get("/ent/all")
             .then(res => {
                 console.log("ents", res)
                 setEnts(res.data)
 
-            })
+            }).catch(err => console.log(err.response))
     }, [])
 
     useEffect(() => {
@@ -48,20 +61,27 @@ const Feed = (props) => {
     }, [])
 
 
+        
+
+
+
+
     return (
         <FeedBox>
 
             {questions.map((question, key) => {
-                console.log(ents, question)
-
+               
+                
+                
 
                 return <FeedCard
                     key={key}
                     id={entObject(question) && entObject(question)}
                     question={question.question}
                     title={question.title}
-
+                    photos={photos}
                 />
+
             })}
         </FeedBox>
 

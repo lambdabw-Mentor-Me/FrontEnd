@@ -8,8 +8,26 @@ import anime from 'animejs/lib/anime.es.js';
 
 
 const FeedCard = (props) => {
+
+
+    
     
     let stringLinkingImage = "https://images.unsplash.com/photo-1564928275797-a7ab0852021d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1682&q=80";
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+      }
+
+
+    //   attempting to implement unsplash random picture
+
+
+    //   try {
+    //     stringLinkingImage = props.photos[getRandomInt(0,29)].url;
+    // } catch {
+    //     console.log('UNSPLASH API lagging')
+    // }
     const Card = styled.div`
         color:white;
         background-image: url(${stringLinkingImage});
