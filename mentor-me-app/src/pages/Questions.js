@@ -1,18 +1,36 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
-import QuestionContainer from "../components/QuestionContainer";
+import QuestionContainer from "../components/Questions/QuestionContainer";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const Questions = (props) => {
   const [questions, setQuestions] = useState([]);
 
-  console.log("question state", questions);
+  // * useState for actively displaying form
+  const [active, setActive] = useState({ display: false });
 
-//   const questionId = questions.find(
-//     question => `${question.id}` === props.match.params.id
-//   );
-//   console.log(questionId);
+  const activate = (e) => {
+    e.preventDefault();
+
+    // ? CHECK FOR BOOLEAN VALUE
+    const displayFalse = active.display === false
+    const displayTrue = active.display === true
+
+    // ? SET DATA AMONGST BOOLEAN FOR NEWEST STATE
+    if (displayFalse) {
+      return setActive({
+        ...active,
+        ...{ display: true }
+      })
+    } else if (displayTrue) {
+      return setActive({
+        ...active,
+        ...{ display: false }
+      })
+    }
+  };
+
+  console.log("question state", questions);
 
   const fetchQuestions = () => {
     axiosWithAuth()
@@ -23,10 +41,8 @@ const Questions = (props) => {
       })
       .catch(err => console.log(err));
   };
-//   console.log(questions)
 
   const handleSubmit = () => {
-    //   console.log(question)
     axiosWithAuth()
       .post(`/questions`, questions)
       .then(res => {
@@ -53,8 +69,18 @@ const Questions = (props) => {
   useEffect(() => {
     fetchQuestions();
   }, []);
+
   return (
-    <div className="App">
+    <div>
+
+      {/* // * TEST BTN FOR DYNAMIC CLASS CHANGE (TEMPORARY BTN)
+       */}
+      <button
+        className={active.display === true ? 'active' : 'false'}
+        onClick={(e) => activate(e)}>
+        Display
+      </button>
+
       <QuestionContainer
         questions={questions}
         addQuestion={handleSubmit}
