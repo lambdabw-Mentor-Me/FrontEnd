@@ -8,8 +8,11 @@ import anime from 'animejs/lib/anime.es.js';
 
 
 const FeedCard = (props) => {
+    const [favorites, setFave] = useState([]);
+    const [hasAnim, setHasAnim] = useState("1s ease-out 0s 1 slideInFromRight");
 
-
+    
+    const handleClick = (event) => console.log(event);
     
     
     let stringLinkingImage = "https://images.unsplash.com/photo-1564928275797-a7ab0852021d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1682&q=80";
@@ -106,7 +109,7 @@ const FeedCard = (props) => {
         // probably set background image with style in here
         // <Card style={{backgroundImage: "url(" + stringLinkingImage + ")"}}>
        
-            <Card>
+            <Card onClick={handleClick}>
                 <Link to="/profile"><Name className="name-info">{props.id}</Name></Link>
                 <Link to="/questions"><Category>{props.title}</Category></Link>
                 <Link to="/questions"><Question>{props.question}</Question></Link>
