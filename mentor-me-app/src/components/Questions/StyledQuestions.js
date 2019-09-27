@@ -99,9 +99,53 @@ const btnDiv = styled.div`
     }
 `;
 
+const form = styled.form`
+
+    background-image: linear-gradient(90deg, #5574f7 0%, #60c3ff 100%);
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 10rem;
+    border-radius: 1rem;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    & > h2 {
+        padding-top: 1rem;
+        color: rgba(255, 255, 255, 0.95);
+        font-size: calc(0.8rem + 0.5vw);
+    }
+
+    & > label {
+        padding-top: 1rem;
+        color: rgba(255, 255, 255, 0.95);
+        font-size: calc(0.8rem + 0.5vw);
+    }
+
+    & > input, button {
+        background-color: rgba(0,0,0,0.1);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.95);
+        border-radius: 0.35rem;
+    }
+
+    & > button {
+        margin: 1rem 0;
+        padding: 0.2rem 0.8rem;
+        color: rgba(255, 255, 255, 0.95);
+        font-size: calc(0.8rem + 0.5vw);
+    }
+
+`;
+
 export default {
     section,
     infoDiv,
     descriptionDiv,
-    btnDiv
+    btnDiv,
+    form
 }
